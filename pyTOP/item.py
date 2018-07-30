@@ -7,8 +7,8 @@ Created by 徐 光硕 on 2011-11-15.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
-from user import Location
+from .api import TOP, TOPRequest, TOPDate
+from .user import Location
 
 class Item(TOP):
     '''Item(商品)结构'''
@@ -31,7 +31,7 @@ class Item(TOP):
         request['location.state'] = location_state
         request['location.city'] = location_city
         request['cid'] = cid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('props', 'approve_status', 'freight_payer', 'valid_thru', 'has_invoice', 'has_warranty', 'has_showcase', 'seller_cids', 'has_discount', 'post_fee', 'express_fee', 'ems_fee', 'list_time', 'increment', 'image', 'postage_id', 'auction_point', 'property_alias', 'input_pids', 'sku_properties', 'sku_prices', 'sku_outer_ids', 'lang', 'outer_id', 'product_id', 'pic_path', 'auto_fill', 'input_str', 'is_taobao', 'is_ex', 'is_3D', 'sell_promise', 'after_sale_id', 'cod_postage_id', 'is_lightning_consignment', 'weight', 'is_xinpin', 'sub_stock') and v==None: continue
             request[k] = v
         
@@ -44,7 +44,7 @@ class Item(TOP):
         根据传入的num_iid更新对应的商品的数据 传入的num_iid所对应的商品必须属于当前会话的用户 商品的属性和sku的属性有包含的关系，商品的价格要位于sku的价格区间之中（例如，sku价格有5元、10元两种，那么商品的价格就需要大于等于5元，小于等于10元，否则更新商品会失败） 商品的类目和商品的价格、sku的价格都有一定的相关性（具体的关系要通过类目属性查询接口获得） 当关键属性值更新为“其他”的时候，需要输入input_pids和input_str商品才能更新成功。'''
         request = TOPRequest('taobao.item.update')
         request['num_iid'] = num_iid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('cid', 'props', 'num', 'price', 'title', 'desc', 'location_state', 'location_city', 'post_fee', 'express_fee', 'ems_fee', 'list_time', 'increment', 'image', 'stuff_status', 'auction_point', 'property_alias', 'input_pids', 'sku_quantities', 'sku_prices', 'sku_properties', 'seller_cids', 'postage_id', 'outer_id', 'product_id', 'pic_path', 'auto_fill', 'sku_outer_ids', 'is_taobao', 'is_ex', 'is_3D', 'is_replace_sku', 'input_str', 'lang', 'has_discount', 'has_showcase', 'approve_status', 'freight_payer', 'valid_thru', 'has_invoice', 'has_warranty', 'after_sale_id', 'sell_promise', 'cod_postage_id', 'is_lightning_consignment', 'weight', 'is_xinpin', 'sub_stock') and v==None: continue
             if k == 'location_state': k = 'location.state'
             if k == 'location_city': k = 'location.city'
@@ -101,7 +101,7 @@ class Item(TOP):
         更新商品价格'''
         request = TOPRequest('taobao.item.price.update')
         request['num_iid'] = num_iid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('cid', 'props', 'num', 'price', 'title', 'desc', 'location_state', 'location_city', 'post_fee', 'express_fee', 'ems_fee', 'list_time', 'increment', 'image', 'stuff_status', 'auction_point', 'property_alias', 'input_pids', 'sku_quantities', 'sku_prices', 'sku_properties', 'seller_cids', 'postage_id', 'outer_id', 'product_id', 'pic_path', 'auto_fill', 'sku_outer_ids', 'is_taobao', 'is_ex', 'is_3D', 'is_replace_sku', 'input_str', 'lang', 'has_discount', 'has_showcase', 'approve_status', 'freight_payer', 'valid_thru', 'has_invoice', 'has_warranty', 'after_sale_id', 'sell_promise', 'cod_postage_id', 'is_lightning_consignment', 'weight', 'is_xinpin') and v==None: continue
             if k == 'location_state': k = 'location.state'
             if k == 'location_city': k = 'location.city'
@@ -173,7 +173,7 @@ class Items(TOP):
             item = Item()
             fields = item.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'nicks', 'cid', 'props', 'product_id', 'page_no', 'order_by', 'ww_status', 'post_free', 'location_state', 'location_city', 'is_3D', 'start_score', 'end_score', 'start_volume', 'end_volume', 'one_station', 'is_cod', 'is_mall', 'is_prepay', 'genuine_security', 'stuff_status', 'start_price', 'end_price', 'page_size', 'promoted_service', 'is_xinpin') and v==None: continue
             if k == 'location_state': k = 'location.state'
             if k == 'location_city': k = 'location.city'
@@ -191,7 +191,7 @@ class Items(TOP):
             item = Item()
             fields = item.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'banner', 'cid', 'seller_cids', 'page_no', 'page_size', 'has_discount', 'order_by', 'is_taobao', 'is_ex', 'start_modified', 'end_modified') and v==None: continue
             request[k] = v
         
@@ -220,7 +220,7 @@ class Items(TOP):
             item = Item()
             fields = item.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'banner', 'cid', 'seller_cids', 'page_no', 'has_discount', 'has_showcase', 'order_by', 'is_taobao', 'is_ex', 'page_size', 'start_modified', 'end_modified') and v==None: continue
             request[k] = v
         
@@ -239,7 +239,7 @@ class Items(TOP):
             item = Item()
             fields = item.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'nicks', 'cid', 'props', 'product_id', 'order_by', 'ww_status', 'post_free', 'location_state', 'location_city', 'is_3D', 'start_score', 'end_score', 'start_volume', 'end_volume', 'one_station', 'is_cod', 'is_mall', 'is_prepay', 'genuine_security', 'promoted_service', 'stuff_status', 'start_price', 'end_price', 'page_no', 'page_size', 'auction_flag', 'auto_post', 'has_discount', 'is_xinpin') and v==None: continue
             if k == 'location_state': k = 'location.state'
             if k == 'location_city': k = 'location.city'
@@ -634,7 +634,7 @@ class Product(TOP):
         request['major'] = major
         request['market_time'] = market_time
         request['property_alias'] = property_alias
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('outer_id', 'props', 'binds', 'sale_props', 'customer_props', 'order_by', 'ww_status', 'post_free', 'location_state', 'location_city', 'is_3D', 'start_score', 'end_score', 'start_volume', 'end_volume', 'one_station', 'is_cod', 'is_mall', 'is_prepay', 'genuine_security', 'promoted_service', 'stuff_status', 'start_price', 'end_price', 'page_no', 'page_size', 'auction_flag', 'auto_post', 'has_discount', 'is_xinpin') and v==None: continue
             if k == 'location_state': k = 'location.state'
             if k == 'location_city': k = 'location.city'
@@ -662,7 +662,7 @@ class Product(TOP):
         传入产品ID 可修改字段：outer_id,binds,sale_props,name,price,desc,image 注意：1.可以修改主图,不能修改子图片,主图最大500K,目前仅支持GIF,JPG 2.商城卖家产品发布24小时后不能作删除或修改操作'''
         request = TOPRequest('taobao.product.update')
         request['product_id'] = product_id
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('outer_id', 'binds', 'sale_props', 'price', 'desc', 'image', 'name', 'major', 'native_unkeyprops') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session)['product'])
@@ -700,7 +700,7 @@ class Products(TOP):
             product = Product()
             fields = product.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'cid', 'props', 'status', 'page_no', 'page_size', 'vertical_market') and v==None: continue
             request[k] = v
         self.create(self.execute(request))

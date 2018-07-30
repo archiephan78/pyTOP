@@ -9,7 +9,7 @@ Created by 徐 光硕 on 2011-11-23.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class ArticleUserSubscribe(TOP):
     '''用户订购信息'''
@@ -45,7 +45,7 @@ class Vas(TOP):
         用于ISV查询自己名下的应用及收费项目的订单记录。目前所有应用调用此接口的频率限制为200次/分钟，即每分钟内，所有应用调用此接口的次数加起来最多为200次。'''
         request = TOPRequest('taobao.vas.order.search')
         request['article_code'] = article_code
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('item_code', 'nick', 'start_created', 'end_created', 'biz_type', 'biz_order_id', 'order_id', 'page_size','page_no') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['article_biz_orders','total_item'], models={'article_biz_orders':ArticleBizOrder})
@@ -57,7 +57,7 @@ class Vas(TOP):
         用于ISV查询自己名下的应用及收费项目的订购记录'''
         request = TOPRequest('taobao.vas.subsc.search')
         request['article_code'] = article_code
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('item_code', 'nick', 'start_deadline', 'end_deadline', 'status', 'autosub', 'expire_notice', 'page_size','page_no') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['article_subs','total_item'], models={'article_subs':ArticleSub})

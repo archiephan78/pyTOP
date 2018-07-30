@@ -13,7 +13,7 @@ from pyTOP.insight import TopLevelCats, WordsBase, WordsAnalysis
 from pyTOP.item import Items
 from pprint import pprint
 import requests
-import urllib, re
+import urllib.request, urllib.parse, urllib.error, re
 from BeautifulSoup import BeautifulSoup
 
 top_session = '4020831d426896a5328c50f8117b920fb78579dYCThsHyd6517981601'
@@ -22,13 +22,13 @@ def extract_form_fields(soup):
     fields = {}
     for input in soup.findAll('input'):
         # ignore submit/image with no name attribute
-        if input['type'] in ('submit', 'image') and not input.has_key('name'):
+        if input['type'] in ('submit', 'image') and 'name' not in input:
             continue
         
         # single element nome/value fields
         if input['type'] in ('text', 'hidden', 'password', 'submit', 'image'):
             value = ''
-            if input.has_key('value'):
+            if 'value' in input:
                 value = input['value']
             fields[input['name']] = value
             continue
@@ -36,15 +36,15 @@ def extract_form_fields(soup):
         # checkboxes and radios
         if input['type'] in ('checkbox', 'radio'):
             value = ''
-            if input.has_key('checked'):
-                if input.has_key('value'):
+            if 'checked' in input:
+                if 'value' in input:
                     value = input['value']
                 else:
                     value = 'on'
-            if 'name' in input and fields.has_key(input['name']) and value:
+            if 'name' in input and input['name'] in fields and value:
                 fields[input['name']] = value
             
-            if 'name' in input and not fields.has_key(input['name']):
+            if 'name' in input and input['name'] not in fields:
                 fields[input['name']] = value
             
             continue
@@ -59,10 +59,10 @@ def extract_form_fields(soup):
     for select in soup.findAll('select'):
         value = ''
         options = select.findAll('option')
-        is_multiple = select.has_key('multiple')
+        is_multiple = 'multiple' in select
         selected_options = [
             option for option in options
-            if option.has_key('selected')
+            if 'selected' in option
         ]
         
         # If no select options, go with the first one
@@ -95,12 +95,12 @@ def get_sug():
 
 def get_user():
     user = User()
-    print user.get('北京喜宝')
+    print(user.get('北京喜宝'))
     items = Items()
-    print items.onsale_get(top_session)
+    print(items.onsale_get(top_session))
     return
     tlc = TopLevelCats()
-    print tlc.get(top_session)
+    print(tlc.get(top_session))
 
 def adwords_login():
     s = requests.session()
@@ -109,7 +109,7 @@ def adwords_login():
     soup = BeautifulSoup(r.content)
     #pprint(r.cookies)
     forms = extract_form_fields(soup.find('form', id='J_StaticForm'))
-    forms['TPL_username'] = u'喜宝_03'.encode('gbk')
+    forms['TPL_username'] = '喜宝_03'.encode('gbk')
     forms['TPL_password'] = 'uwUe3tlToXtZgO6Y'
     #forms['_tb_token_'] = 'L3T8QONzL1/PqT8QON0M1/mga8QON4M1/Niw9QONCQ1/YM3AQONJQ1/9fZWUON8f3/QFbWUONAf3/qyfWUONEf3'
     #forms['umto'] = 'T7f5c7eb9e08c689752f741e81dcbe2c5,'
@@ -120,7 +120,7 @@ def adwords_login():
     'Referer':'https://login.taobao.com/member/login.jhtml',
     'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.53.11 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10'}
     r = s.post(login_url, data=forms, headers=headers)
-    print r.status_code
+    print(r.status_code)
     pprint(r.request.data)
     pprint(r.headers)
     pprint(r.cookies)
@@ -136,10 +136,10 @@ def adwords_login():
         m = re.findall(r'window\.location = "([^^]*?)";', r.text)
         if m:
             r = s.get(m[0], headers=headers)
-            print r.url
+            print(r.url)
             
     r = s.get('http://subway.simba.taobao.com/login.htm?outSideKey=taobao', headers=headers)
-    print r.content
+    print(r.content)
     #print r.status_code
     #print r.cookies
     

@@ -9,8 +9,8 @@ Created by 徐 光硕 on 2011-11-23.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
-from item import Item
+from .api import TOP, TOPRequest, TOPDate
+from .item import Item
 
 class TaobaokeReportMember(TOP):
     '''淘宝客报表成员'''
@@ -80,7 +80,7 @@ class TaobaokeShops(TOP):
             taobaokeShop = TaobaokeShop()
             fields = taobaokeShop.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'outer_code', 'pid') and v==None: continue
             request[k] = v
         self.create(self.execute(request))
@@ -95,7 +95,7 @@ class TaobaokeShops(TOP):
             taobaokeShop = TaobaokeShop()
             fields = taobaokeShop.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('cid', 'start_credit', 'end_credit','start_commissionrate','end_commissionrate','start_auctioncount','end_auctioncount','start_totalaction','end_totalaction','only_mall','keyword','outer_code','page_no','page_size','nick','pid') and v==None: continue
             request[k] = v
         self.create(self.execute(request))
@@ -111,7 +111,7 @@ class Taobaoke(TOP):
         
         淘宝客类目推广URL'''
         request = TOPRequest('taobao.taobaoke.caturl.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('q', 'cid', 'nick', 'outer_code', 'pid') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_item'], models={'taobaoke_item':TaobaokeItem})
@@ -126,7 +126,7 @@ class Taobaoke(TOP):
             taobaokeItem = TaobaokeItem()
             fields = taobaokeItem.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'outer_code', 'num_iids', 'pid', 'is_mobile') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_items', 'total_results'], models={'taobaoke_items':TaobaokeItem})
@@ -142,7 +142,7 @@ class Taobaoke(TOP):
             taobaokeItem = TaobaokeItem()
             fields = taobaokeItem.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'outer_code', 'pid') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_item_details', 'total_results'], models={'taobaoke_item_details':TaobaokeItemDetail})
@@ -157,7 +157,7 @@ class Taobaoke(TOP):
             taobaokeItem = TaobaokeItem()
             fields = taobaokeItem.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'pid', 'keyword', 'cid', 'start_price','end_price','auto_send','area','start_credit','end_credit','sort','guarantee','start_commissionRate','end_commissionRate','start_commissionNum','end_commissionNum','start_totalnum','end_totalnum','cash_coupon','vip_card','overseas_item','sevendays_return','real_describe','onemonth_repair','cash_ondelivery','mall_item','page_no','page_size','outer_code','is_mobile') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_items', 'total_results'], models={'taobaoke_items':TaobaokeItem})
@@ -169,7 +169,7 @@ class Taobaoke(TOP):
         淘宝客关键词搜索URL'''
         request = TOPRequest('taobao.taobaoke.listurl.get')
         request['q'] = q
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'outer_code', 'pid') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_item'], models={'taobaoke_item':TaobaokeItem})
@@ -193,7 +193,7 @@ class Taobaoke(TOP):
             taobaokeItem = TaobaokeItem()
             fields = taobaokeItem.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'pid', 'biz_type', 'card_type', 'area','operator','price','game_name','outer_code','page_no','page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['taobaoke_items', 'total_results'], models={'taobaoke_items':TaobaokeItem})

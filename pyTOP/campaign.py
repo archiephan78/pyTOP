@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-22.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class AreaOption(TOP):
     '''推广计划可选择的投放地域'''
@@ -459,7 +459,7 @@ class Keywords(TOP):
         取得一个推广组的推荐关键词列表'''
         request = TOPRequest('xxxxx.xxxxx.keywords.recommend.get')
         request['adgroup_id'] = adgroup_id
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('nick', 'order_by', 'search', 'pertinence', 'page_size', 'page_no') and v==None: continue
             request[k] = v
         self.create(self.execute(request), models = {'result':RecommendWordPage})

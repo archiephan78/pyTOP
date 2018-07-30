@@ -9,7 +9,7 @@ Created by 徐 光硕 on 2011-11-23.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class NotifyRefund(TOP):
     '''退款通知消息'''
@@ -80,7 +80,7 @@ class Increment(TOP):
         
         开通主动通知业务的APP可以通过该接口获取商品变更通知信息 建议获取增量消息的时间间隔是：半个小时'''
         request = TOPRequest('taobao.increment.items.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('status', 'nick', 'start_modified', 'end_modified', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['notify_items', 'total_results'], models={'notify_items':NotifyItem})
@@ -91,7 +91,7 @@ class Increment(TOP):
         
         开通主动通知业务的APP可以通过该接口获取用户的退款变更通知信息 建议在获取增量消息的时间间隔是：半个小时'''
         request = TOPRequest('taobao.increment.refunds.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('status', 'nick', 'start_modified', 'end_modified', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['notify_refunds', 'total_results'], models={'notify_refunds':NotifyRefund})
@@ -102,7 +102,7 @@ class Increment(TOP):
         
         开通主动通知业务的APP可以通过该接口获取用户的交易和评价变更通知信息 建议在获取增量消息的时间间隔是：半个小时'''
         request = TOPRequest('taobao.increment.trades.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('status', 'nick', 'type', 'start_modified', 'end_modified', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request), fields=['notify_trades', 'total_results'], models={'notify_trades':NotifyTrade})

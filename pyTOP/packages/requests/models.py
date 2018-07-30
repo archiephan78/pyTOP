@@ -7,11 +7,11 @@ requests.models
 This module contains the primary objects that power Requests.
 """
 
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import zlib
 
-from Cookie import SimpleCookie
-from urlparse import urlparse, urlunparse, urljoin, urlsplit
+from http.cookies import SimpleCookie
+from urllib.parse import urlparse, urlunparse, urljoin, urlsplit
 from datetime import datetime
 
 from .auth import dispatch as auth_dispatch
@@ -122,7 +122,7 @@ class Request(object):
         else:
             headers = CaseInsensitiveDict()
 
-        for (k, v) in self.config.get('base_headers', {}).items():
+        for (k, v) in list(self.config.get('base_headers', {}).items()):
             if k not in headers:
                 headers[k] = v
 
@@ -169,7 +169,7 @@ class Request(object):
                     c = SimpleCookie()
                     c.load(cookie_header)
 
-                    for k,v in c.items():
+                    for k,v in list(c.items()):
                         cookies.update({k: v.value})
 
                 # Save cookies in Response.
@@ -214,7 +214,7 @@ class Request(object):
                 # Facilitate non-RFC2616-compliant 'location' headers
                 # (e.g. '/path/to/resource' instead of 'http://domain.tld/path/to/resource')
                 if not urlparse(url).netloc:
-                    url = urljoin(r.url, urllib.quote(urllib.unquote(url)))
+                    url = urljoin(r.url, urllib.parse.quote(urllib.parse.unquote(url)))
 
                 # http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4
                 if r.status_code is codes.see_other:
@@ -273,11 +273,11 @@ class Request(object):
 
         if hasattr(data, 'items'):
             result = []
-            for k, vs in data.items():
+            for k, vs in list(data.items()):
                 for v in isinstance(vs, list) and vs or [vs]:
-                    result.append((k.encode('utf-8') if isinstance(k, unicode) else k,
-                                   v.encode('utf-8') if isinstance(v, unicode) else v))
-            return result, urllib.urlencode(result, doseq=True)
+                    result.append((k.encode('utf-8') if isinstance(k, str) else k,
+                                   v.encode('utf-8') if isinstance(v, str) else v))
+            return result, urllib.parse.urlencode(result, doseq=True)
         else:
             return data, data
 
@@ -296,10 +296,10 @@ class Request(object):
 
         netloc = netloc.encode('idna')
 
-        if isinstance(path, unicode):
+        if isinstance(path, str):
             path = path.encode('utf-8')
 
-        path = urllib.quote(urllib.unquote(path))
+        path = urllib.parse.quote(urllib.parse.unquote(path))
 
         url = str(urlunparse([ scheme, netloc, path, params, query, fragment ]))
 
@@ -363,14 +363,14 @@ class Request(object):
 
         # Multi-part file uploads.
         if self.files:
-            if not isinstance(self.data, basestring):
+            if not isinstance(self.data, str):
 
                 try:
                     fields = self.data.copy()
                 except AttributeError:
                     fields = dict(self.data)
 
-                for (k, v) in self.files.items():
+                for (k, v) in list(self.files.items()):
                     fields.update({k: (guess_filename(k) or k, v.read())})
 
                 (body, content_type) = encode_multipart_formdata(fields)
@@ -381,7 +381,7 @@ class Request(object):
             if self.data:
 
                 body = self._enc_data
-                if isinstance(self.data, basestring):
+                if isinstance(self.data, str):
                     content_type = None
                 else:
                     content_type = 'application/x-www-form-urlencoded'
@@ -421,7 +421,7 @@ class Request(object):
 
                     # Simple cookie with our dict.
                     c = SimpleCookie()
-                    for (k, v) in self.cookies.items():
+                    for (k, v) in list(self.cookies.items()):
                         c[k] = v
 
                     # Turn it into a header.
@@ -446,13 +446,13 @@ class Request(object):
                 )
 
 
-            except MaxRetryError, e:
+            except MaxRetryError as e:
                 if not self.config.get('safe_mode', False):
                     raise ConnectionError(e)
                 else:
                     r = None
 
-            except (_SSLError, _HTTPError), e:
+            except (_SSLError, _HTTPError) as e:
                 if not self.config.get('safe_mode', False):
                     raise Timeout('Request timed out.')
 
@@ -519,7 +519,7 @@ class Response(object):
     def __repr__(self):
         return '<Response [%s]>' % (self.status_code)
 
-    def __nonzero__(self):
+    def __bool__(self):
         """Returns true if :attr:`status_code` is 'OK'."""
         return self.ok
 

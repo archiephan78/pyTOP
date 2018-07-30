@@ -20,6 +20,7 @@ dist
 *.pyc
 *.pyo
 *.tmp*
+*.bak
 
 ## generic files to ignore
 *~

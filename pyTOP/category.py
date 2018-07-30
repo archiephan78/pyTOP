@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-15.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest
+from .api import TOP, TOPRequest
 
 class PropValue(TOP):
     '''属性值'''
@@ -96,7 +96,7 @@ class ItemProps(TOP):
             fields = itemProp.fields
         request['fields'] = fields
         request['cid'] = cid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('pid', 'parent_pid', 'is_key_prop', 'is_sale_prop', 'is_color_prop', 'is_enum_prop', 'is_input_prop', 'is_item_prop', 'child_path') and v==None: continue
             request[k] = v
         self.create(self.execute(request))

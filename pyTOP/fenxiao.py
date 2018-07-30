@@ -9,7 +9,7 @@ Created by 徐 光硕 on 2011-11-23.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class Discount(TOP):
     '''折扣信息'''
@@ -36,7 +36,7 @@ class Discount(TOP):
         
         修改等级折扣'''
         request = TOPRequest('taobao.fenxiao.discount.update')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('discount_id', 'discount_name', 'discount_status', 'detail_ids', 'target_types', 'target_ids', 'discount_types', 'discount_values', 'detail_statuss') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['is_success',])
@@ -95,7 +95,7 @@ class Cooperation(TOP):
         
         获取供应商的合作关系信息'''
         request = TOPRequest('taobao.fenxiao.cooperation.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('status', 'start_date', 'end_date', 'trade_type', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['total_results','cooperations'], models={'cooperations':Cooperation})
@@ -170,7 +170,7 @@ class Distributor(TOP):
         
         供应商查询分销商商品下载记录。'''
         request = TOPRequest('taobao.fenxiao.distributor.items.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('distributor_id', 'start_modified', 'end_modified', 'page_no', 'page_size', 'product_id') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['total_results','records'], models={'records':FenxiaoItemRecord})
@@ -230,7 +230,7 @@ class FenxiaoProduct(TOP):
         request['postage_type'] = postage_type
         request['have_invoice'] = have_invoice
         request['have_guarantee'] = have_guarantee
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('cost_price', 'outer_id', 'postage_id', 'postage_ordinary', 'postage_fast', 'postage_ems', 'discount_id', 'trade_type','is_authz','pic_path','image','properties','property_alias','input_properties','sku_standard_prices','sku_cost_prices','sku_outer_ids','sku_quantitys','sku_properties','dealer_cost_price','sku_dealer_cost_prices') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['pid','created'], models={'created':TOPDate})
@@ -266,7 +266,7 @@ class FenxiaoProduct(TOP):
         request['product_id'] = product_id
         request['standard_price'] = standard_price
         request['properties'] = properties
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('quantity', 'agent_cost_price', 'sku_number', 'dealer_cost_price') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['result','created'], models={'created':TOPDate})
@@ -289,7 +289,7 @@ class FenxiaoProduct(TOP):
         request = TOPRequest('taobao.fenxiao.product.sku.update')
         request['product_id'] = product_id
         request['properties'] = properties
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('quantity', 'standard_price', 'agent_cost_price', 'sku_number', 'dealer_cost_price') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['result','created'], models={'created':TOPDate})
@@ -311,7 +311,7 @@ class FenxiaoProduct(TOP):
         - 对sku进行增、删操作时，原有的sku_ids字段会被忽略，请使用sku_properties和sku_properties_del。'''
         request = TOPRequest('taobao.fenxiao.product.update')
         request['pid'] = pid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('name', 'standard_price', 'cost_price', 'retail_price_low', 'retail_price_high', 'outer_id', 'quantity', 'alarm_number','desc','prov','city','postage_type','postage_id','postage_ordinary','postage_fast','postage_ems','status','sku_ids','sku_cost_prices','sku_quantitys','sku_outer_ids','have_invoice','have_guarantee','discount_id','sku_standard_prices','sku_properties','sku_properties_del','is_authz','pic_path','image','properties','property_alias','input_properties','dealer_cost_price','sku_dealer_cost_prices','category_id') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['pid','modified'], models={'modified':TOPDate})
@@ -335,7 +335,7 @@ class FenxiaoProducts(TOP):
         - 入参fields仅对传入pids生效（只有按ID查询时，才能查询额外的数据） 
         - 查询结果按照产品发布时间倒序，即时间近的数据在前。'''
         request = TOPRequest('taobao.fenxiao.products.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('outer_id', 'productcat_id', 'status', 'pids', 'fields', 'start_modified', 'end_modified', 'page_no','page_size','sku_number','is_authz') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -400,7 +400,7 @@ class FenxiaoOrders(TOP):
         
         分销商或供应商均可用此接口查询采购单信息. (发货处理请调用物流API中的发货接口)'''
         request = TOPRequest('taobao.fenxiao.orders.get')
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('status', 'start_created', 'end_created', 'time_type', 'page_no', 'page_size', 'purchase_order_id') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))

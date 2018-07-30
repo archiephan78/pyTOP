@@ -7,9 +7,9 @@ Created by 徐 光硕 on 2011-11-18.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
-from user import Location
-from trade import Task
+from .api import TOP, TOPRequest, TOPDate
+from .user import Location
+from .trade import Task
 
 class TransitStepInfo(TOP):
     '''物流跟踪信息的一条'''
@@ -199,7 +199,7 @@ class Postage(TOP):
         postage_mode_types、postage_mode_dests、postage_mode_prices、 postage_mode_increases四个字段组合起来表示邮费的子模板列表。每个邮费子模板都包含了type（邮费类型，有post、 express、ems可以选择）、dest（邮费模板应用地区，每个模板可以使用于多个地区，每个地区填入他的代码，地区与地区之间用半角逗号分隔）、 price（邮费基价）、increment（邮费增价）四个部分。如果有多个子模板，则将他们的4个部分分别组合，之间用半角分号隔开（注意每个模板的每个部分的位置要一样。即，子模板1号的type、dest、price、increment都要排在这四个参数的第一位；子模板2号要排在第二位……以此类推）'''
         request = TOPRequest('taobao.postage.add')
         request['name'] = name
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('post_price', 'post_increase', 'express_price', 'express_increase', 'ems_price', 'ems_increase', 'memo', 'postage_mode_types', 'postage_mode_dests', 'postage_mode_prices', 'postage_mode_increases') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session)['postage'])
@@ -240,7 +240,7 @@ class Postage(TOP):
         - 修改的邮费子模板要传入子模板id，否则作为添加子模板处理。postage_mode_types、 postage_mode_dests、postage_mode_prices、postage_mode_increases四个字段的处理逻辑见 taobao.postage.add中的描述'''
         request = TOPRequest('taobao.postage.update')
         request['postage_id'] = postage_id
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('post_price', 'post_increase', 'express_price', 'express_increase', 'ems_price', 'ems_increase', 'name', 'memo', 'postage_mode_ids', 'postage_mode_types', 'postage_mode_dests', 'postage_mode_prices', 'postage_mode_increases', 'postage_mode_optTypes', 'remove_post', 'remove_express', 'remove_ems') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session)['postage'])
@@ -317,7 +317,7 @@ class LogisticsAddress(TOP):
         request['province'] = province
         request['city'] = city
         request['addr'] = addr
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('country', 'zip_code', 'phone', 'mobile_phone', 'seller_company', 'memo', 'get_def', 'cancel_def') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -333,7 +333,7 @@ class LogisticsAddress(TOP):
         request['province'] = province
         request['city'] = city
         request['addr'] = addr
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('country', 'zip_code', 'phone', 'mobile_phone', 'seller_company', 'memo', 'get_def', 'cancel_def') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -429,7 +429,7 @@ class LogisticsOnline(TOP):
         request = TOPRequest('taobao.logistics.online.send')
         request['tid'] = tid
         request['company_code'] = company_code
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('out_sid', 'sender_id', 'cancel_id', 'feature') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), fields=['shipping', ], models={'shipping':Shipping})
@@ -451,7 +451,7 @@ class Orders(TOP):
             shipping = Shipping()
             fields = shipping.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('tid', 'buyer_nick', 'status', 'seller_confirm', 'receiver_name', 'start_created', 'end_created', 'freight_payer', 'type', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -466,7 +466,7 @@ class Orders(TOP):
             shipping = Shipping()
             fields = shipping.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('tid', 'buyer_nick', 'status', 'seller_confirm', 'receiver_name', 'start_created', 'end_created', 'freight_payer', 'type', 'page_no', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -509,7 +509,7 @@ class TopatsDelivery(TOP):
         - 5.此api执行完成发送的通知消息格式为{"task":{"task_id":123456,"created":"2010-8-19"}}'''
         request = TOPRequest('taobao.postage.add')
         request['tids'] = tids
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('company_codes', 'out_sids', 'seller_name', 'seller_area_id', 'seller_address', 'seller_zip', 'seller_phone', 'seller_mobile', 'order_types', 'memos') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))

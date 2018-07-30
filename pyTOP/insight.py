@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-21.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class INWordBase(TOP):
     '''词基础数据对象'''

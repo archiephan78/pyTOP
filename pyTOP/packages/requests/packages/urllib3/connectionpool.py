@@ -8,8 +8,8 @@ import logging
 import socket
 
 
-from httplib import HTTPConnection, HTTPSConnection, HTTPException
-from Queue import Queue, Empty, Full
+from http.client import HTTPConnection, HTTPSConnection, HTTPException
+from queue import Queue, Empty, Full
 from select import select
 from socket import error as SocketError, timeout as SocketTimeout
 
@@ -134,7 +134,7 @@ class HTTPConnectionPool(ConnectionPool, RequestMethods):
         self.headers = headers or {}
 
         # Fill the queue up so that doing get() on it will block properly
-        for _ in xrange(maxsize):
+        for _ in range(maxsize):
             self.pool.put(None)
 
         # These are mostly for testing and debugging purposes.
@@ -336,16 +336,16 @@ class HTTPConnectionPool(ConnectionPool, RequestMethods):
             #     ``response.release_conn()`` is called (implicitly by
             #     ``response.read()``)
 
-        except (SocketTimeout, Empty), e:
+        except (SocketTimeout, Empty) as e:
             # Timed out either by socket or queue
             raise TimeoutError("Request timed out after %s seconds" %
                                self.timeout)
 
-        except (BaseSSLError), e:
+        except (BaseSSLError) as e:
             # SSL certificate error
             raise SSLError(e)
 
-        except (HTTPException, SocketError), e:
+        except (HTTPException, SocketError) as e:
             # Connection broken, discard. It will be replaced next _get_conn().
             conn = None
 

@@ -11,14 +11,14 @@ try :
     import json  
 except ImportError :  
     import simplejson as json  
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import requests
 from hashlib import md5
 #import base64
-from api import TOP, TOPRequest, TOPDate
-from systime import SysTime
+from .api import TOP, TOPRequest, TOPDate
+from .systime import SysTime
 import time
-from errors import TOPException
+from .errors import TOPException
 from BeautifulSoup import BeautifulSoup
 
 class Location(TOP):
@@ -62,9 +62,9 @@ class User(TOP):
             'timestamp'  : systime.get(),
             'sign_method' : self.SIGN_METHOD,
         }
-        src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.iteritems())]) + self.APP_SECRET
+        src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.items())]) + self.APP_SECRET
         params['sign'] = md5(src).hexdigest().upper()
-        form_data = urllib.urlencode(params)
+        form_data = urllib.parse.urlencode(params)
         rsp = requests.get('%s?%s'%(self.LOGOUT_URL, form_data))
         if 'login.taobao.com' in rsp.url: return True
         return False
@@ -79,17 +79,17 @@ class User(TOP):
             }
             if app_user_nick!=None: params['app_user_nick'] = app_user_nick
             if target!=None: params['target'] = target
-            src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.iteritems())]) + self.APP_SECRET
+            src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.items())]) + self.APP_SECRET
             params['sign'] = md5(src).hexdigest().upper()
-            form_data = urllib.urlencode(params)
+            form_data = urllib.parse.urlencode(params)
             rsp = requests.get('%s?%s'%(self.TaobaoID_URL, form_data))
-            print rsp.content
+            print(rsp.content)
         else:
             rsp = requests.get('%s%s'%(self.LOGIN_URL, self.API_KEY))
             soup = BeautifulSoup(rsp.content)
             iframe_src = soup.find('iframe')['src']
             rsp = requests.get(iframe_src)
-            print rsp.url
+            print(rsp.url)
             #s = requests.session()
             login_url = 'https://login.taobao.com/member/login.jhtml'
             soup = BeautifulSoup(rsp.content)
@@ -99,8 +99,8 @@ class User(TOP):
             forms['TPL_username'] = username
             forms['TPL_password'] = passwd
             rsp = requests.post(login_url, data=forms)
-            print rsp.url
-            print rsp.content
+            print(rsp.url)
+            print(rsp.content)
     
     def validate_session(self, session_ts):
         '''
@@ -123,9 +123,9 @@ class User(TOP):
             'sessionkey'  : sessionkey,
             'refresh_token': refresh_token
         }
-        src = ''.join(["%s%s" % (k, v) for k, v in sorted(params.iteritems())]) + self.APP_SECRET
+        src = ''.join(["%s%s" % (k, v) for k, v in sorted(params.items())]) + self.APP_SECRET
         params['sign'] = md5(src).hexdigest().upper()
-        form_data = urllib.urlencode(params)
+        form_data = urllib.parse.urlencode(params)
         rsp = requests.get('%s?%s'%(self.REFRESH_TOKEN_URL, form_data))
         rsp = json.loads(rsp.content)
         if 'error' in rsp:
@@ -141,13 +141,13 @@ class User(TOP):
         fields = {}
         for input in soup.findAll('input'):
             # ignore submit/image with no name attribute
-            if input['type'] in ('submit', 'image') and not input.has_key('name'):
+            if input['type'] in ('submit', 'image') and 'name' not in input:
                 continue
             
             # single element nome/value fields
             if input['type'] in ('text', 'hidden', 'password', 'submit', 'image'):
                 value = ''
-                if input.has_key('value'):
+                if 'value' in input:
                     value = input['value']
                 fields[input['name']] = value
                 continue
@@ -155,15 +155,15 @@ class User(TOP):
             # checkboxes and radios
             if input['type'] in ('checkbox', 'radio'):
                 value = ''
-                if input.has_key('checked'):
-                    if input.has_key('value'):
+                if 'checked' in input:
+                    if 'value' in input:
                         value = input['value']
                     else:
                         value = 'on'
-                if 'name' in input and fields.has_key(input['name']) and value:
+                if 'name' in input and input['name'] in fields and value:
                     fields[input['name']] = value
                 
-                if 'name' in input and not fields.has_key(input['name']):
+                if 'name' in input and input['name'] not in fields:
                     fields[input['name']] = value
                 
                 continue
@@ -178,10 +178,10 @@ class User(TOP):
         for select in soup.findAll('select'):
             value = ''
             options = select.findAll('option')
-            is_multiple = select.has_key('multiple')
+            is_multiple = 'multiple' in select
             selected_options = [
                 option for option in options
-                if option.has_key('selected')
+                if 'selected' in option
             ]
             
             # If no select options, go with the first one

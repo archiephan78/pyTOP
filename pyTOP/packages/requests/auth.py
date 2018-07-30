@@ -11,7 +11,7 @@ import time
 import hashlib
 
 from base64 import b64encode
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 from .utils import randombytes, parse_dict_header
 
@@ -134,7 +134,7 @@ def dispatch(t):
         t.insert(0, 'basic')
 
     # Allow built-in string referenced auths.
-    if isinstance(t[0], basestring):
+    if isinstance(t[0], str):
         if t[0] in ('basic', 'forced_basic'):
             t[0] = http_basic
         elif t[0] in ('digest',):

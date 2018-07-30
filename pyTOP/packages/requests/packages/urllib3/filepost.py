@@ -9,9 +9,9 @@ import mimetools
 import mimetypes
 
 try:
-    from cStringIO import StringIO
+    from io import StringIO
 except ImportError:
-    from StringIO import StringIO # pylint: disable-msg=W0404
+    from io import StringIO # pylint: disable-msg=W0404
 
 
 writer = codecs.lookup('utf-8')[3]
@@ -39,7 +39,7 @@ def encode_multipart_formdata(fields, boundary=None):
     if boundary is None:
         boundary = mimetools.choose_boundary()
 
-    for fieldname, value in fields.iteritems():
+    for fieldname, value in fields.items():
         body.write('--%s\r\n' % (boundary))
 
         if isinstance(value, tuple):
@@ -57,7 +57,7 @@ def encode_multipart_formdata(fields, boundary=None):
         if isinstance(data, int):
             data = str(data)  # Backwards compatibility
 
-        if isinstance(data, unicode):
+        if isinstance(data, str):
             writer(body).write(data)
         else:
             body.write(data)

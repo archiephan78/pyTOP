@@ -10,9 +10,9 @@ import zlib
 
 
 try:
-    from cStringIO import StringIO
+    from io import StringIO
 except ImportError:
-    from StringIO import StringIO # pylint: disable-msg=W0404
+    from io import StringIO # pylint: disable-msg=W0404
 
 
 from .exceptions import HTTPError

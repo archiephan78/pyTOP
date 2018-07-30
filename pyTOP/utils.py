@@ -9,13 +9,13 @@ Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 
 from operator import itemgetter
 import threading
-import Queue
+import queue
 import traceback
 
 try: 
-    from cStringIO import StringIO 
+    from io import StringIO 
 except ImportError: 
-    from StringIO import StringIO
+    from io import StringIO
 
 def Traceback():
     try:
@@ -32,7 +32,7 @@ def sort_dict(self, data, key):
 class ThreadPool:
     '''ThreadPool Utility'''
     def __init__(self,maxWorkers = 10):
-        self.tasks = Queue.Queue()
+        self.tasks = queue.Queue()
         self.workers = 0
         self.working = 0
         self.responses = []
@@ -56,7 +56,7 @@ class ThreadPool:
         self.countLock.release()
     
     def addWorker(self,num = 1):
-        for x in xrange(num):
+        for x in range(num):
             self.countLock.acquire()
             self.workers += 1
             self.allKilled.clear()
@@ -70,7 +70,7 @@ class ThreadPool:
         if num > self.workers:
             num = self.workers
         self.countLock.release()
-        for x in xrange(num):
+        for x in range(num):
             self.tasks.put("exit")  
     
     def killAllWorkers(self, wait=None):
@@ -105,8 +105,8 @@ class ThreadPool:
                     self.responses.append(cb(ret))
                 else:
                     self.responses.append(ret)
-            except Exception, err:
-                print Traceback()
+            except Exception as err:
+                print(Traceback())
             self.countLock.acquire()
             self.working -= 1
             self.countLock.release()

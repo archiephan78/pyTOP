@@ -19,8 +19,8 @@ except ImportError:
     import simplejson as json
 from BeautifulSoup import BeautifulSoup
 #from pprint import pprint
-from urlparse import urlparse
-from utils import ThreadPool
+from urllib.parse import urlparse
+from .utils import ThreadPool
 from . import models
 from sqlalchemy.exc import IntegrityError
 
@@ -93,9 +93,9 @@ class ItemAttr:
 class Ad:
     '''The advertisement object in search results'''
     def __init__(self, **kwargs):
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             k = k.lower().encode('utf-8')
-            v = v.encode('utf-8') if type(v) == unicode else v
+            v = v.encode('utf-8') if type(v) == str else v
             if k in ('resourceid', 'sell', 'grade', ):
                 v = int(v)
             elif k in ('isglobal', 'ishk', 'ismall', 'isprepay'):
@@ -132,7 +132,7 @@ class Crawler:
         
     def search(self, keyword):
         '''Get search results for a specific keyword'''
-        if type(keyword) != unicode: q = keyword.decode('utf-8')
+        if type(keyword) != str: q = keyword.decode('utf-8')
         req = self.fetch(self.search_url, {'q':q.encode('gbk')})
         if not req: return None
         html = req.content.decode('gbk').encode('utf-8')
@@ -170,7 +170,7 @@ class Crawler:
         items = [Ad(**item) for item in json.loads(re.findall(r'__p4p_sidebar__ \=(\[[^^]*?\])\n', req.content)[0])]
         return items
         
-        print soup.findAll('ul', attrs={'class':'p4p-list'})
+        print(soup.findAll('ul', attrs={'class':'p4p-list'}))
         for ul in soup.findAll('ul', attrs={'class':'p4p-list'}):
             for li in ul.findAll('li', attrs={'class':'item'}):
                 items.append(self.item_parser(li))
@@ -232,19 +232,19 @@ class Crawler:
     
     def cat_top_keywords(self, session, cat, up=True,  offset=0, offsets=[]):
         '''Get top keywords in a specific category'''
-        print 'CAT:%s, level:%s'%(str(cat), str(cat.level))
-        print 'OFFSET: %d'%offset
+        print('CAT:%s, level:%s'%(str(cat), str(cat.level)))
+        print('OFFSET: %d'%offset)
         response = []
         if not offsets or offset==0: 
             url = 'http://top.taobao.com/level3.php?cat=%s&level3=%s&show=focus&up=%s&offset=%d'%(cat.parent.cid, '' if cat.level==2 else str(cat.cid), 'true' if up else '', offset)
-            print url
+            print(url)
             rs = self.fetch(url)
             if not rs: return response
             soup = BeautifulSoup(rs.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
             response = self.parse_cat_top_keywords(soup, offset)
         if offset==0:
             offsets = self.get_cat_top_keywords_pages(soup, offset)
-            print 'OFFSETS: %s'%offsets
+            print('OFFSETS: %s'%offsets)
         if offsets:
             rs = []
             threadPool = ThreadPool(len(offsets) if len(offsets)<=5 else 5)
@@ -259,10 +259,10 @@ class Crawler:
                 soup2 = BeautifulSoup(p.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
                 offset2 = int(p.config['offset'])
                 response += self.parse_cat_top_keywords(soup2, offset2)
-                print 'GOT: %d'%offset2
+                print('GOT: %d'%offset2)
                 if p.config['get_next'] != 'True': continue
                 offsets = self.get_cat_top_keywords_pages(soup2, offset2)
-                print offsets
+                print(offsets)
                 if not offsets: continue
                 response += self.cat_top_keywords(session, cat, up, offset2, offsets)
         #return sorted(response, key=itemgetter('pos')) if response else []
@@ -278,7 +278,7 @@ class Crawler:
                 new_keyword = session.query(models.Keyword).filter(models.Keyword.name == k['name']).first()
                 new_keyword.categories.append(cat)
                 session.commit()
-                print 'Duplicate %s'%new_keyword
+                print('Duplicate %s'%new_keyword)
         return response
     
     def get_cat_top_keywords_pages(self, soup, offset):
@@ -329,17 +329,17 @@ class Crawler:
             session.add(new_cat)
             try:
                 session.commit()
-            except IntegrityError, e:
+            except IntegrityError as e:
                 session.rollback()
                 new_cat = session.query(models.Category).filter(models.Category.cid == str(cat['id'])).first()
-                print 'Duplicate %d'%new_cat.id
+                print('Duplicate %d'%new_cat.id)
             if 'children' in cat and cat['children']:
                 self.save_cats(cat['children'], new_cat.id, session)
         #session.commit()
         
             
     def get_cats_thread(self, cat):
-        print cat['id']
+        print(cat['id'])
         subcats = self.get_sub_cats('http://top.taobao.com/level2.php?cat=%s'%cat['id'], 'cat', 2)
         if len(subcats) == 1:
             cat['children'] = self.get_sub_cats_thread(subcats[0])

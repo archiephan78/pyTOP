@@ -9,7 +9,7 @@ Created by 徐 光硕 on 2011-11-23.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class TradeRate(TOP):
     '''评价列表'''
@@ -64,7 +64,7 @@ class TradeRates(TOP):
             tradeRate = TradeRate()
             fields = tradeRate.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('result', 'page_no', 'page_size', 'start_date', 'end_date', 'tid') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))

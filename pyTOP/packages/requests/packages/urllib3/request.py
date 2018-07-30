@@ -5,7 +5,7 @@
 # the MIT License: http://www.opensource.org/licenses/mit-license.php
 
 
-from urllib import urlencode
+from urllib.parse import urlencode
 
 from .filepost import encode_multipart_formdata
 

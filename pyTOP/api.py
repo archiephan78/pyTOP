@@ -14,11 +14,11 @@ try :
     import json  
 except ImportError:  
     import simplejson as json  
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from hashlib import md5  
 import base64
 
-from errors import TOPException
+from .errors import TOPException
 import requests
 #from pprint import pprint
 
@@ -107,18 +107,18 @@ class TOP(object):
         '''
         Generate API sign code
         '''
-        for k, v in params.iteritems():
+        for k, v in params.items():
             if type(v) == int: v = str(v)
             elif type(v) == float: v = '%.2f'%v
             elif type(v) in (list, set): 
                 v = ','.join([str(i) for i in v])
             elif type(v) == bool: v = 'true' if v else 'false'
             elif type(v) == datetime.datetime: v = v.strftime('%Y-%m-%d %X')
-            if type(v) == unicode:
+            if type(v) == str:
                 params[k] = v.encode('utf-8')
             else:
                 params[k] = v
-        src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.iteritems())])
+        src = self.APP_SECRET + ''.join(["%s%s" % (k, v) for k, v in sorted(params.items())])
         return md5(src).hexdigest().upper()
     
     def decode_params(top_parameters) :  
@@ -161,12 +161,12 @@ class TOP(object):
         #print params
         method = method.lower()
         if method == 'get':
-            form_data = urllib.urlencode(params)
+            form_data = urllib.parse.urlencode(params)
             rsp = requests.get('%s?%s'%(self.GATEWAY, form_data))
         elif method == 'post':
             rsp = requests.post(self.GATEWAY, data=params)
         rsp = json.loads(rsp.content)
-        if rsp.has_key('error_response'):
+        if 'error_response' in rsp:
             error_code = rsp['error_response']['code']
             if 'sub_msg' in rsp['error_response']:
                 msg = '%s [%s]'%(rsp['error_response']['sub_msg'], rsp['error_response']['msg'])
@@ -188,13 +188,13 @@ class TOP(object):
         for field in fields:
             setattr(self,field,None)
         if not data: return None
-        for k, v in data.iteritems():
-            if type(v) in (str, unicode):
+        for k, v in data.items():
+            if type(v) in (str, str):
                 v = v.strip()
             if models and k in models:
                 if type(v) == dict:
                     lists = []
-                    for k2, v2 in v.iteritems():
+                    for k2, v2 in v.items():
                         if type(v2) == list:
                             for d in v2:
                                 model = models[k]()
@@ -216,7 +216,7 @@ class TOP(object):
             if hasattr(self, field):
                 v = getattr(self, field)
                 if v==None: continue
-                if type(v) == unicode: v = v.encode('utf-8')
+                if type(v) == str: v = v.encode('utf-8')
                 attrs.append('%s=%s'%(field, v))
         return "<%s: %s>" %(self.__class__.__name__, ', '.join(attrs))
     

@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-18.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class ShopCat(TOP):
     '''店铺类目'''

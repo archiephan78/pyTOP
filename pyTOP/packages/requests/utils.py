@@ -11,7 +11,7 @@ that are also useful for external consumption.
 
 import cgi
 import codecs
-import cookielib
+import http.cookiejar
 import os
 import random
 import re
@@ -131,16 +131,16 @@ def header_expand(headers):
     collector = []
 
     if isinstance(headers, dict):
-        headers = headers.items()
+        headers = list(headers.items())
 
-    elif isinstance(headers, basestring):
+    elif isinstance(headers, str):
         return headers
 
     for i, (value, params) in enumerate(headers):
 
         _params = []
 
-        for (p_k, p_v) in params.items():
+        for (p_k, p_v) in list(params.items()):
 
             _params.append('%s=%s' % (p_k, p_v))
 
@@ -186,9 +186,9 @@ def dict_from_cookiejar(cj):
 
     cookie_dict = {}
 
-    for _, cookies in cj._cookies.items():
-        for _, cookies in cookies.items():
-            for cookie in cookies.values():
+    for _, cookies in list(cj._cookies.items()):
+        for _, cookies in list(cookies.items()):
+            for cookie in list(cookies.values()):
                 # print cookie
                 cookie_dict[cookie.name] = cookie.value
 
@@ -202,11 +202,11 @@ def cookiejar_from_dict(cookie_dict):
     """
 
     # return cookiejar if one was passed in
-    if isinstance(cookie_dict, cookielib.CookieJar):
+    if isinstance(cookie_dict, http.cookiejar.CookieJar):
         return cookie_dict
 
     # create cookiejar
-    cj = cookielib.CookieJar()
+    cj = http.cookiejar.CookieJar()
 
     cj = add_dict_to_cookiejar(cj, cookie_dict)
 
@@ -220,9 +220,9 @@ def add_dict_to_cookiejar(cj, cookie_dict):
     :param cookie_dict: Dict of key/values to insert into CookieJar.
     """
 
-    for k, v in cookie_dict.items():
+    for k, v in list(cookie_dict.items()):
 
-        cookie = cookielib.Cookie(
+        cookie = http.cookiejar.Cookie(
             version=0,
             name=k,
             value=v,
@@ -286,7 +286,7 @@ def unicode_from_html(content):
     for encoding in encodings:
 
         try:
-            return unicode(content, encoding)
+            return str(content, encoding)
         except (UnicodeError, TypeError):
             pass
 
@@ -333,13 +333,13 @@ def get_unicode_from_response(r):
 
     if encoding:
         try:
-            return unicode(r.content, encoding)
+            return str(r.content, encoding)
         except UnicodeError:
             tried_encodings.append(encoding)
 
     # Fall back:
     try:
-        return unicode(r.content, encoding, errors='replace')
+        return str(r.content, encoding, errors='replace')
     except TypeError:
         return r.content
 

@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-18.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class GroupDomain(TOP):
     '''分组简单定义'''
@@ -176,7 +176,7 @@ class Members(TOP):
         查询卖家的会员，进行基本的查询，返回符合条件的会员列表'''
         request = TOPRequest('taobao.crm.members.get')
         request['current_page'] = current_page
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('buyer_nick', 'grade', 'min_trade_amount', 'max_trade_amount', 'min_trade_count', 'max_trade_count', 'min_last_trade_time', 'max_last_trade_time', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -208,7 +208,7 @@ class Members(TOP):
         增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回'''
         request = TOPRequest('taobao.crm.members.increment.get')
         request['current_page'] = current_page
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('grade', 'start_modify', 'end_modify', 'page_size') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -220,7 +220,7 @@ class Members(TOP):
         会员列表的高级查询，接口返回符合条件的会员列表'''
         request = TOPRequest('taobao.crm.members.search')
         request['current_page'] = current_page
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('buyer_nick', 'grade', 'min_trade_amount', 'max_trade_amount', 'min_trade_count', 'max_trade_count', 'min_last_trade_time', 'max_last_trade_time', 'relation_source', 'min_item_num', 'min_avg_price', 'min_close_trade_num', 'province', 'city', 'group_id', 'page_size', 'order', 'max_avg_price', 'max_item_num', 'max_close_trade_num', 'sort') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session), models={'members':CrmMember})
@@ -252,7 +252,7 @@ class Rule(TOP):
         添加分组规则，规则可用于筛选一定条件的会员。过滤条件可以选择客户来源、会员级别 、交易笔数、交易额、上次交易时间、平均客单价、宝贝件数、省份、关闭交易数等，新建规则时必须至少选择一个以上筛选条件。如果输入的规则的筛选条件不正确则不会进行处理，可以将某些分组挂在这个规则下，对被挂在该规则下的分组，系统对现有满足规则的客户都划分到这个分组（异步任务），若某些会员分组数或规则数超最大限额，则该会员不被操作，同时不影响其余会员操作，接口调用依然返回成功。每个规则可以应用到多个分组，一个用户的规则上限为5个。'''
         request = TOPRequest('taobao.crm.rule.add')
         request['rule_name'] = rule_name
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('relation_source', 'grade', 'min_trade_amount', 'max_trade_amount', 'min_trade_count', 'max_trade_count', 'min_last_trade_time', 'max_last_trade_time', 'min_item_num', 'min_avg_price', 'min_close_trade_num', 'province', 'group_ids', 'max_avg_price', 'max_item_num', 'max_close_trade_num') and v==None: continue
             request[k] = v
         self.create(self.execute(request, session))

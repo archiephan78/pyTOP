@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyTOP'
-copyright = u'2011, Prof Syd Xu'
+project = 'pyTOP'
+copyright = '2011, Prof Syd Xu'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -183,8 +183,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'pyTOP.tex', u'pyTOP Documentation',
-   u'Prof Syd Xu', 'manual'),
+  ('index', 'pyTOP.tex', 'pyTOP Documentation',
+   'Prof Syd Xu', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -213,8 +213,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pytop', u'pyTOP Documentation',
-     [u'Prof Syd Xu'], 1)
+    ('index', 'pytop', 'pyTOP Documentation',
+     ['Prof Syd Xu'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'pyTOP', u'pyTOP Documentation',
-   u'Prof Syd Xu', 'pyTOP', 'One line description of project.',
+  ('index', 'pyTOP', 'pyTOP Documentation',
+   'Prof Syd Xu', 'pyTOP', 'One line description of project.',
    'Miscellaneous'),
 ]
 

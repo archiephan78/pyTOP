@@ -7,7 +7,7 @@ Created by 徐 光硕 on 2011-11-18.
 Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 """
 
-from api import TOP, TOPRequest, TOPDate
+from .api import TOP, TOPRequest, TOPDate
 
 class PromotionDetail(TOP):
     '''交易的优惠信息详情'''
@@ -226,7 +226,7 @@ class Trade(TOP):
         '''taobao.trade.shippingaddress.update 更改交易的收货地址'''
         request = TOPRequest('taobao.trade.shippingaddress.update')
         request['tid'] = tid
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('receiver_name','receiver_phone','receiver_mobile','receiver_state','receiver_city','receiver_district','receiver_address','receiver_zip') or v==None: continue
             request[k] = v
         self.create(self.execute(request, session)['trade'])
@@ -259,7 +259,7 @@ class Trades(TOP):
             trade = Trade()
             fields = trade.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('start_created','end_created','status','seller_nick','type','page_no','page_size','rate_status') or v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -274,7 +274,7 @@ class Trades(TOP):
             trade = Trade()
             fields = trade.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('start_created','end_created','status','buyer_nick','type','page_no','page_size','rate_status','tag') or v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
@@ -292,7 +292,7 @@ class Trades(TOP):
             trade = Trade()
             fields = trade.fields
         request['fields'] = fields
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             if k not in ('start_modified','end_modified','status','use_has_next','type','page_no','page_size','tag') or v==None: continue
             request[k] = v
         self.create(self.execute(request, session))
