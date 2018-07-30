@@ -5,7 +5,7 @@
 
 API无需订购ecrm工具也可调用。开放淘宝卖家的会员数据，并且提供对会员的相关管理，设置操作。
 
-.. module:: crm
+.. module:: pyTOP.crm
 
 .. autoclass:: GroupDomain
    :members:

@@ -21,6 +21,7 @@ dist
 *.pyo
 *.tmp*
 *.bak
+doc/_build
 
 ## generic files to ignore
 *~

@@ -5,7 +5,7 @@
 
 提供用户应用订购关系相关查询
 
-.. module:: vas
+.. module:: pyTOP.vas
 
 .. autoclass:: ArticleUserSubscribe
    :members:

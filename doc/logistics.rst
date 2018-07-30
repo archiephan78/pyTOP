@@ -5,7 +5,7 @@
 
 提供了发货，物流单详情，区域地址和物流公司信息查询功能
 
-.. module:: logistics
+.. module:: pyTOP.logistics
 
 .. autoclass:: TransitStepInfo
    :members:

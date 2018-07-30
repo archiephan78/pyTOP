@@ -5,7 +5,7 @@
 
 提供了分销商信息和采购单信息的查询以及分销产品的添加和更新等功能
 
-.. module:: fenxiao
+.. module:: pyTOP.fenxiao
 
 .. autoclass:: Discount
    :members:

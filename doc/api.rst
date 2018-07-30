@@ -16,7 +16,7 @@ Basic API
 All of pyTOP's functionality can be accessed by these 3 methods.
 They all return an instance of the :class:`TOP <TOP>` object.
 
-.. module:: api
+.. module:: pyTOP.api
 
 .. autoclass:: TOP
    :inherited-members:
@@ -34,7 +34,7 @@ They all return an instance of the :class:`TOP <TOP>` object.
 
 Exceptions
 --------------
-.. module:: errors
+.. module:: pyTOP.errors
 
 .. autoexception:: TOPException
 

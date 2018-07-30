@@ -5,7 +5,7 @@
 
 提供了店铺查询，店铺自定义类目的查询和更新，图片空间图片的查询和删除等功能
 
-.. module:: shop
+.. module:: pyTOP.shop
 
 .. autoclass:: ShopCat
    :members:

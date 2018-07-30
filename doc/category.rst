@@ -5,7 +5,7 @@
 
 提供了标准类目，类目属性和类目属性值的查询功能
 
-.. module:: category
+.. module:: pyTOP.category
 
 .. autoclass:: PropValue
    :members:

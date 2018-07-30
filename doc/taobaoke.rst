@@ -5,7 +5,7 @@
 
 提供了淘宝客商品列表和淘宝客单品详情推广，店铺推广，类目和关键字推广以及淘客报表查询等功能
 
-.. module:: taobaoke
+.. module:: pyTOP.taobaoke
 
 .. autoclass:: TaobaokeReportMember
    :members:

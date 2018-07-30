@@ -5,7 +5,7 @@
 
 提供了收藏夹添加和查询功能
 
-.. module:: favorite
+.. module:: pyTOP.favorite
 
 .. autoclass:: CollectItem
    :members:

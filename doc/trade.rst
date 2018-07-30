@@ -5,7 +5,7 @@
 
 提供了订单下载，修改收货地址、修改交易备注等功能
 
-.. module:: trade
+.. module:: pyTOP.trade
 
 .. autoclass:: PromotionDetail
    :members:

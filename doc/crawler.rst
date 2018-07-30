@@ -5,7 +5,7 @@ Crawler
 
 Search Crawler and Top Keywords Crawler
 
-.. module:: crawler
+.. module:: pyTOP.crawler
 
 .. autoclass:: SearchResults
    :members:

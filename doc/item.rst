@@ -5,7 +5,7 @@
 
 提供了商品以及商品相关的sku，邮费增加，修改功能
 
-.. module:: item
+.. module:: pyTOP.item
 
 .. autoclass:: Item
    :members:

@@ -5,7 +5,7 @@
 
 提供了评价的添加和查询功能
 
-.. module:: traderate
+.. module:: pyTOP.traderate
 
 .. autoclass:: TradeRate
    :members:

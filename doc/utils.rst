@@ -5,7 +5,7 @@ Utils
 
 Utilities
 
-.. module:: utils
+.. module:: pyTOP.utils
 
 .. autoclass:: ThreadPool
    :members:

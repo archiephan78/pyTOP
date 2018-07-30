@@ -5,7 +5,7 @@
 
 提供了用户基本信息查询功能
 
-.. module:: user
+.. module:: pyTOP.user
 
 .. autoclass:: User
    :members:

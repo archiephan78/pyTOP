@@ -6,7 +6,7 @@
 
 提供了系统时间查询
 
-.. module:: systime
+.. module:: pyTOP.systime
 
 .. autoclass:: SysTime
    :members:
