@@ -17,17 +17,25 @@ try :
     import json  
 except ImportError:  
     import simplejson as json
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 #from pprint import pprint
 from urllib.parse import urlparse
 from .utils import ThreadPool
 from . import models
 from sqlalchemy.exc import IntegrityError
 
-hexentityMassage = copy.copy(BeautifulSoup.MARKUP_MASSAGE)
-# replace hexadecimal character reference by decimal one
-hexentityMassage += [(re.compile('&#x([^;]+);'), 
-                     lambda m: '&#%d;' % int(m.group(1), 16))]
+#https://stackoverflow.com/questions/8626554/beautifulsoup-4-0b-markupmassage
+from bs4.builder import LXMLTreeBuilder
+
+class Builder(LXMLTreeBuilder):
+    def __init__(self, *args, **kwargs):
+        super(Builder, self).__init__(*args, **kwargs)
+
+    def prepare_markup(self, *args, **kwargs):
+        markup, user_enc, doc_enc = super(Builder, self).prepare_markup(*args, **kwargs)
+        # replace hexadecimal character reference by decimal one
+        hexentityMassage = copy.copy(soup)
+        hexentityMassage += [(re.compile('&#x([^;]+);'), lambda m: '&#%d;' % int(m.group(1), 16))]
 
 class SearchResults:
     '''Search Results Object'''
@@ -122,7 +130,7 @@ class Crawler:
         req = self.fetch(self.item_url, {'id':item_id})
         if not req: return None
         html = req.content.decode('gbk').encode('utf-8')
-        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+        soup = BeautifulSoup(html, builder=Builder())
         
     def sug(self, keyword):
         req = self.fetch(self.sug_url, {'code':'utf-8', 'extras':1, 'q':keyword})
@@ -136,7 +144,7 @@ class Crawler:
         req = self.fetch(self.search_url, {'q':q.encode('gbk')})
         if not req: return None
         html = req.content.decode('gbk').encode('utf-8')
-        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+        soup = BeautifulSoup(html, builder=Builder())
         cats = self.cats_parser(soup)
         keywords = self.keywords_parser(soup)
         mall_items = self.mall_items_parser(soup)
@@ -240,7 +248,7 @@ class Crawler:
             print(url)
             rs = self.fetch(url)
             if not rs: return response
-            soup = BeautifulSoup(rs.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+            soup = BeautifulSoup(html, builder=Builder())
             response = self.parse_cat_top_keywords(soup, offset)
         if offset==0:
             offsets = self.get_cat_top_keywords_pages(soup, offset)
@@ -256,7 +264,7 @@ class Crawler:
             #print 'RESPONSES: %s'%pages
             for p in pages:
                 if not p: continue
-                soup2 = BeautifulSoup(p.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+                soup2 = BeautifulSoup(html, builder=Builder())
                 offset2 = int(p.config['offset'])
                 response += self.parse_cat_top_keywords(soup2, offset2)
                 print('GOT: %d'%offset2)
@@ -289,7 +297,7 @@ class Crawler:
     def parse_cat_top_keywords(self, soup, offset=0):
         if not soup: return []
         if type(soup) == Response: 
-            soup = BeautifulSoup(soup.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+            soup = BeautifulSoup(html, builder=Builder())
             offset = soup.config['page_offset']
         ks = []
         table = soup.find('table', attrs={'class':'textlist'})
@@ -310,7 +318,7 @@ class Crawler:
         start_url = 'http://top.taobao.com/index.php?from=tbsy'
         rs = self.fetch(start_url)
         if not rs: return None
-        soup = BeautifulSoup(rs.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+        soup = BeautifulSoup(html, builder=Builder())
         cats = [{'id':'TR_%s'%li['id'].encode('utf-8').upper(), 'title':li.a.text.encode('utf-8').strip()} for li in soup.find('div', id='nav').findAll('li') if li['id']!='index']
         threadPool = ThreadPool(len(cats) if len(cats)<=5 else 5)
         for cat in cats:
@@ -358,7 +366,7 @@ class Crawler:
         rs = self.fetch(url)
         if not rs: return None
         cats = []
-        soup = BeautifulSoup(rs.content, convertEntities=BeautifulSoup.HTML_ENTITIES, markupMassage=hexentityMassage)
+        soup = BeautifulSoup(html, builder=Builder())
         div = soup.find('div', id='categories')
         if not div: return None
         for dd in div.findAll('dd'):

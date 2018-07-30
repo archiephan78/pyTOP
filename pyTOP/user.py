@@ -19,7 +19,7 @@ from .api import TOP, TOPRequest, TOPDate
 from .systime import SysTime
 import time
 from .errors import TOPException
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 class Location(TOP):
     '''用户地址'''
