@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>分销 API &mdash; pyTOP 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="淘客 API" href="taobaoke.html" />
+    <link rel="prev" title="系统时间 API" href="systime.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyTOP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">pyTOP’s API Document</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#basic-api">Basic API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#id2">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="user.html">用户 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="category.html">类目 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">商品 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shop.html">店铺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trade.html">交易 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crm.html">店铺会员管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sellercenter.html">子账号管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wangwang.html">旺旺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logistics.html">物流 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="favorite.html">收藏夹 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traderate.html">评价 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systime.html">系统时间 API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">分销 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taobaoke.html">淘客 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="increment.html">主动通知业务 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vas.html">在线订购 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html">Crawler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyTOP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">pyTOP’s API Document</a> &raquo;</li>
+        
+      <li>分销 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fenxiao.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<span id="fenxiao"></span><h1>分销 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>提供了分销商信息和采购单信息的查询以及分销产品的添加和更新等功能</p>
+<span class="target" id="module-pyTOP.fenxiao"></span><dl class="class">
+<dt id="pyTOP.fenxiao.Discount">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Discount</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>折扣信息</p>
+<dl class="method">
+<dt id="pyTOP.fenxiao.Discount.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>discount_name</em>, <em>target_types</em>, <em>target_ids</em>, <em>discount_types</em>, <em>discount_values</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Discount.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.discount.add 新增等级折扣</p>
+<p>新增等级折扣</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.Discount.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Discount.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.discount.update 修改等级折扣</p>
+<p>修改等级折扣</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.Discounts">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Discounts</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Discounts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.Discounts.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>discount_id=None</em>, <em>ext_fields=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Discounts.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.discounts.get 获取折扣信息</p>
+<p>查询折扣信息</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.DiscountDetail">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">DiscountDetail</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.DiscountDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>折扣详情信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoSku">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoSku</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoSku" title="Permalink to this definition">¶</a></dt>
+<dd><p>分销产品SKU</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoItemRecord">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoItemRecord</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoItemRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>分销商品下载记录</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.Cooperation">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Cooperation</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Cooperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>合作分销关系</p>
+<dl class="method">
+<dt id="pyTOP.fenxiao.Cooperation.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Cooperation.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.cooperation.get 获取供应商的合作关系信息</p>
+<p>获取供应商的合作关系信息</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.Cooperation.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>distributor_id</em>, <em>grade_id</em>, <em>session</em>, <em>trade_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Cooperation.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.cooperation.update 更新合作关系等级</p>
+<p>供应商更新合作的分销商等级</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoGrade">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoGrade</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoGrade" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoGrades">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoGrades</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoGrades" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoGrades.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoGrades.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.grades.get 分销商等级查询</p>
+<p>根据供应商ID，查询他的分销商等级信息</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.Receiver">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>收货人详细信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.LoginUser">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">LoginUser</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.LoginUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>登录分销用户信息</p>
+<dl class="method">
+<dt id="pyTOP.fenxiao.LoginUser.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.LoginUser.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.login.user.get 获取分销用户登录信息</p>
+<p>获取用户登录信息</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.Distributor">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Distributor</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Distributor" title="Permalink to this definition">¶</a></dt>
+<dd><p>分销API返回数据结构</p>
+<dl class="method">
+<dt id="pyTOP.fenxiao.Distributor.items_get">
+<code class="descname">items_get</code><span class="sig-paren">(</span><em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Distributor.items_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.distributor.items.get 查询商品下载记录</p>
+<p>供应商查询分销商商品下载记录。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.Distributors">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">Distributors</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Distributors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.Distributors.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>nicks</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.Distributors.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.distributors.get 获取分销商信息</p>
+<p>查询和当前登录供应商有合作关系的分销商的信息</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.PurchaseOrder">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">PurchaseOrder</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.PurchaseOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>采购单及子采购单信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoProduct">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoProduct</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>分销产品</p>
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>name</em>, <em>productcat_id</em>, <em>standard_price</em>, <em>retail_price_low</em>, <em>retail_price_high</em>, <em>category_id</em>, <em>quantity</em>, <em>alarm_number</em>, <em>desc</em>, <em>prov</em>, <em>city</em>, <em>postage_type</em>, <em>have_invoice</em>, <em>have_guarantee</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.add 添加产品</p>
+<p>添加分销平台产品数据。业务逻辑与分销系统前台页面一致</p>
+<ul class="simple">
+<li>产品图片默认为空</li>
+<li>产品发布后默认为下架状态</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.image_delete">
+<code class="descname">image_delete</code><span class="sig-paren">(</span><em>product_id</em>, <em>position</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.image_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.image.delete 产品图片删除</p>
+<p>产品图片删除，只删除图片信息，不真正删除图片</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.image_upload">
+<code class="descname">image_upload</code><span class="sig-paren">(</span><em>product_id</em>, <em>position</em>, <em>session</em>, <em>pic_path=None</em>, <em>image=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.image_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.image.upload 产品图片上传</p>
+<p>产品主图图片空间相对路径或绝对路径添加或更新，或者是图片上传。如果指定位置的图片已存在，则覆盖原有信息，如果位置为1,自动设为主图。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.sku_add">
+<code class="descname">sku_add</code><span class="sig-paren">(</span><em>product_id</em>, <em>standard_price</em>, <em>properties</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.sku_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.sku.add 产品sku添加接口</p>
+<p>添加产品SKU信息</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.sku_delete">
+<code class="descname">sku_delete</code><span class="sig-paren">(</span><em>product_id</em>, <em>properties</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.sku_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.sku.delete 产品SKU删除接口</p>
+<p>根据sku properties删除sku数据</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.sku_update">
+<code class="descname">sku_update</code><span class="sig-paren">(</span><em>product_id</em>, <em>properties</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.sku_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.sku.update 产品sku编辑接口</p>
+<p>产品SKU信息更新</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.skus_get">
+<code class="descname">skus_get</code><span class="sig-paren">(</span><em>product_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.skus_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.skus.get SKU查询接口</p>
+<p>产品sku查询</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProduct.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>pid</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProduct.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.product.update 更新产品</p>
+<ul class="simple">
+<li>更新分销平台产品数据，不传更新数据返回失败</li>
+<li>对sku进行增、删操作时，原有的sku_ids字段会被忽略，请使用sku_properties和sku_properties_del。</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoProducts">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoProducts</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProducts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoProducts.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoProducts.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.products.get 查询产品列表</p>
+<p>查询供应商的产品数据
+- 入参传入pids将优先查询，即只按这个条件查询。 
+- 入参传入sku_number将优先查询(没有传入pids)，即只按这个条件查询(最多显示50条) 
+- 入参fields传skus将查询sku的数据，不传该参数默认不查询，返回产品的其它信息。 
+- 入参fields传入images将查询多图数据，不传只返回主图数据。 
+- 入参fields仅对传入pids生效（只有按ID查询时，才能查询额外的数据） 
+- 查询结果按照产品发布时间倒序，即时间近的数据在前。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.SubPurchaseOrder">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">SubPurchaseOrder</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.SubPurchaseOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>子采购单详细信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.ProductCat">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">ProductCat</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.ProductCat" title="Permalink to this definition">¶</a></dt>
+<dd><p>产品线</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.ProductCats">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">ProductCats</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.ProductCats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.ProductCats.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>fields=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.ProductCats.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.productcats.get 查询产品线列表</p>
+<p>查询供应商的所有产品线数据。根据登陆用户来查询，不需要其他入参</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoOrder">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoOrder</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoOrder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoOrder.confirm_paid">
+<code class="descname">confirm_paid</code><span class="sig-paren">(</span><em>purchase_order_id</em>, <em>session</em>, <em>confirm_remark=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoOrder.confirm_paid" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.order.confirm.paid 确认收款</p>
+<p>供应商确认收款（非支付宝交易）。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.fenxiao.FenxiaoOrders">
+<em class="property">class </em><code class="descclassname">pyTOP.fenxiao.</code><code class="descname">FenxiaoOrders</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoOrders" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.fenxiao.FenxiaoOrders.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.fenxiao.FenxiaoOrders.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.fenxiao.orders.get 查询采购单信息</p>
+<p>分销商或供应商均可用此接口查询采购单信息. (发货处理请调用物流API中的发货接口)</p>
+</dd></dl>
+
+</dd></dl>
+
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="taobaoke.html" class="btn btn-neutral float-right" title="淘客 API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="systime.html" class="btn btn-neutral" title="系统时间 API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011, Prof Syd Xu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyTOP: Taobao Open Platform API python Wrapper &mdash; pyTOP 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyTOP’s API Document" href="api.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> pyTOP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">pyTOP’s API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pyTOP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>pyTOP: Taobao Open Platform API python Wrapper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pytop-taobao-open-platform-api-python-wrapper">
+<h1>pyTOP: Taobao Open Platform API python Wrapper<a class="headerlink" href="#pytop-taobao-open-platform-api-python-wrapper" title="Permalink to this headline">¶</a></h1>
+<p>pyTOP is an ISC Licensed Taobao Open Platform API library, written in Python.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>用户 API</li>
+<li>类目 API</li>
+<li>商品 API</li>
+<li>店铺 API</li>
+<li>交易 API</li>
+<li>店铺会员管理 API</li>
+<li>子账号管理 API</li>
+<li>旺旺 API</li>
+<li>物流 API</li>
+<li>评价 API</li>
+<li>收藏夹 API</li>
+<li>系统时间 API</li>
+<li>分销 API</li>
+<li>淘客 API</li>
+<li>主动通知业务 API</li>
+<li>在线订购 API</li>
+<li>insight API</li>
+<li>campagin API</li>
+<li>Search Crawler</li>
+<li>Top Keywords Crawler</li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Requests (<a class="reference external" href="https://github.com/kennethreitz/requests">https://github.com/kennethreitz/requests</a>)</li>
+<li>Urllib3 (<a class="reference external" href="http://code.google.com/p/urllib3/">http://code.google.com/p/urllib3/</a>)</li>
+<li>Dateutil (<a class="reference external" href="http://labix.org/python-dateutil">http://labix.org/python-dateutil</a>)</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install pyTOP, simply:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install pyTOP
+</pre></div>
+</div>
+<p>Or, if you absolutely must:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ easy_install pyTOP
+</pre></div>
+</div>
+<p>Or, download the source file and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>You could setup API KEY and APP SECRET in system environment (~/.bash_profile)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TOP ENVIRONMENT</span>
+<span class="n">TOP_ENVIRONMENT</span> <span class="o">=</span> <span class="n">product</span> <span class="c1"># or sandbox</span>
+<span class="c1"># PRODUCT VARS</span>
+<span class="n">TOP_PRODUCT_API_KEY</span> <span class="o">=</span> <span class="mi">12345678</span>
+<span class="n">TOP_PRODUCT_APP_SECRET</span> <span class="o">=</span> <span class="mi">9</span><span class="n">f127588ceb726905e078b64ab88a362</span>
+<span class="n">TOP_PRODUCT_API_URL</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gw</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">router</span><span class="o">/</span><span class="n">rest</span>
+<span class="c1"># SANDBOX VARS</span>
+<span class="n">TOP_SANDBOX_API_KEY</span> <span class="o">=</span> <span class="mi">12345678</span>
+<span class="n">TOP_SANDBOX_APP_SECRET</span> <span class="o">=</span> <span class="n">sandbox8ceb726905e078b64ab88a362</span>
+<span class="n">TOP_SANDBOX_API_URL</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gw</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">tbsandbox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">router</span><span class="o">/</span><span class="n">rest</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bububa&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">user</span>
+<span class="go">&lt;User: user_id=180018765, uid=520be25d2ae9de5ea1d6a784e67d6edf, nick=bububa, buyer_credit=&lt;UserCredit: level=0, score=0, total_num=0, good_num=0&gt;, seller_credit=&lt;UserCredit: level=0, score=0, total_num=0, good_num=0&gt;, created=2011-11-21 15:11:47, last_visit=2011-11-21 15:12:07, type=C, has_shop=False, is_lightning_consignment=False&gt;</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-document">
+<h2>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">pyTOP’s API Document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#basic-api">Basic API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id2">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug. There is a Contributor Friendly tag for issues that should be ideal for people who are not very familiar with the codebase yet.</li>
+<li>Fork <a class="reference external" href="http://github.com/bububa/pyTOP">the repository</a> on Github to start making your changes to the <strong>develop</strong> branch (or branch off of it).</li>
+<li>Write a test which shows that the bug was fixed or that the feature works as expected.</li>
+<li>Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to <a class="reference external" href="http://github.com/bububa/pyTOP/blob/master/AUTHORS">AUTHORS</a>.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="pyTOP’s API Document" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011, Prof Syd Xu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

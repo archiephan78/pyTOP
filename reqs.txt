@@ -1,7 +1,0 @@
-envoy
-nose
-pyflakes 
-rudolf
-psycopg2
-mysql-python
-SQLAlchemy

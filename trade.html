@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>交易 API &mdash; pyTOP 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="店铺会员管理 API" href="crm.html" />
+    <link rel="prev" title="店铺 API" href="shop.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyTOP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">pyTOP’s API Document</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#basic-api">Basic API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#id2">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="user.html">用户 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="category.html">类目 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">商品 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shop.html">店铺 API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">交易 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crm.html">店铺会员管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sellercenter.html">子账号管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wangwang.html">旺旺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logistics.html">物流 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="favorite.html">收藏夹 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traderate.html">评价 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systime.html">系统时间 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fenxiao.html">分销 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taobaoke.html">淘客 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="increment.html">主动通知业务 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vas.html">在线订购 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html">Crawler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyTOP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">pyTOP’s API Document</a> &raquo;</li>
+        
+      <li>交易 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/trade.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<span id="trade"></span><h1>交易 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>提供了订单下载，修改收货地址、修改交易备注等功能</p>
+<span class="target" id="module-pyTOP.trade"></span><dl class="class">
+<dt id="pyTOP.trade.PromotionDetail">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">PromotionDetail</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.PromotionDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>交易的优惠信息详情</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.OrderAmount">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">OrderAmount</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.OrderAmount" title="Permalink to this definition">¶</a></dt>
+<dd><p>子订单的帐务数据结构</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.Order">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">Order</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>订单结构</p>
+<dl class="method">
+<dt id="pyTOP.trade.Order.ordersku_update">
+<code class="descname">ordersku_update</code><span class="sig-paren">(</span><em>oid</em>, <em>sku_id=None</em>, <em>sku_props=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Order.ordersku_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.ordersku.update 更新交易订单的销售属性</p>
+<p>需要商家或以上权限才可调用此接口，可重复调用本接口更新交易备注，本接口同时具有添加备注的功能</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.TradeAmount">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">TradeAmount</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.TradeAmount" title="Permalink to this definition">¶</a></dt>
+<dd><p>交易订单的帐务信息详情</p>
+<dl class="method">
+<dt id="pyTOP.trade.TradeAmount.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>tid</em>, <em>session</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.TradeAmount.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.amount.get 交易订单帐务查询</p>
+<p>卖家查询该笔交易订单的资金帐务相关的数据</p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>只供卖家使用，买家不可使用</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="2">
+<li>可查询所有的状态的订单，但不同状态时订单的相关数据可能会有不同</li>
+</ol>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.TradeAccountDetail">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">TradeAccountDetail</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.TradeAccountDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝卖家绑定的支付宝账户的财务明细</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.Task">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">Task</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>批量异步任务结果</p>
+<dl class="method">
+<dt id="pyTOP.trade.Task.accountreport_get">
+<code class="descname">accountreport_get</code><span class="sig-paren">(</span><em>start_created</em>, <em>end_created</em>, <em>session</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Task.accountreport_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.topats.trade.accountreport.get 异步获取淘宝卖家绑定的支付宝账户的财务明细</p>
+<ul class="simple">
+<li>1.提供异步下载用户支付宝对账信息接口</li>
+<li>2.一次调用最多支持下载3个月的对账信息</li>
+<li>3.仅能获取2010年6月10日以后的信息</li>
+<li>4.提交任务会进行初步任务校验，如果成功会返回任务号和创建时间，如果失败就报错</li>
+<li>5.可以接收淘宝发出的任务完成消息，也可以过一段时间来取结果。获取结果接口为taobao.topats.result.get</li>
+<li>6.支付宝证书签名方法见文档：“<a class="reference external" href="http://open.taobao.com/dev/index.php">http://open.taobao.com/dev/index.php</a>/如何数字证书签名”</li>
+<li>7.此api执行完成发送的通知消息格式为{“task”:{“task_id”:123456,”created”:”2010-8-19”}}</li>
+<li>8.此任务是大数据任务，获取任务结果时只能得到下载url</li>
+<li>9.子任务结果解析见TradeAccountDetail结构体说明</li>
+<li>10.此接口执行任务时间段为：00:00:00-09:30:00;11:00:00-14:00:00;17:00:00-20:00:00;22:30:00-23:59:59，只有在这段时间内才能返回查询结果</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Task.fullinfo_get">
+<code class="descname">fullinfo_get</code><span class="sig-paren">(</span><em>tids</em>, <em>session</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Task.fullinfo_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.topats.trades.fullinfo.get 异步批量获取交易订单详情api</p>
+<p>使用指南：<a class="reference external" href="http://open.taobao.com/dev/index.php/ATS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97">http://open.taobao.com/dev/index.php/ATS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97</a> 
+- 1.提供异步批量获取订单详情功能 
+- 2.一次调用最多支持40个订单 
+- 3.提交任务会进行初步任务校验，如果成功会返回任务号和创建时间，如果失败就报错 
+- 4.可以接收淘宝发出的任务完成消息，也可以过一段时间来取结果。获取结果接口为taobao.topats.result.get 
+- 5.此api执行完成发送的通知消息格式为{“task”:{“task_id”:123456,”created”:”2010-8-19”}}果</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Task.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>task_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Task.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.topats.result.get 获取异步任务结果</p>
+<p>使用指南：<a class="reference external" href="http://open.taobao.com/doc/detail.htm?id=30">http://open.taobao.com/doc/detail.htm?id=30</a></p>
+<ul class="simple">
+<li>1.此接口用于获取异步任务处理的结果，传入的task_id必需属于当前的appKey才可以</li>
+<li>2.此接口只返回执行完成的任务结果，未执行完的返回结果里面不包含任务结果，只有任务id，执行状态</li>
+<li>3.执行完成的每个task的子任务结果内容与单个任务的结果结构一致。如：taobao.topats.trades.fullinfo.get返回的子任务结果就会是Trade的结构体。</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.Trade">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">Trade</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade" title="Permalink to this definition">¶</a></dt>
+<dd><p>交易结构</p>
+<dl class="method">
+<dt id="pyTOP.trade.Trade.close">
+<code class="descname">close</code><span class="sig-paren">(</span><em>tid</em>, <em>close_reason</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.close 卖家关闭一笔交易</p>
+<p>关闭一笔订单，可以是主订单或子订单。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.fullinfo_get">
+<code class="descname">fullinfo_get</code><span class="sig-paren">(</span><em>tid</em>, <em>session</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.fullinfo_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.fullinfo.get 获取单笔交易的详细信息</p>
+<p>获取单笔交易的详细信息</p>
+<ul class="simple">
+<li>1.只有在交易成功的状态下才能取到交易佣金，其它状态下取到的都是零或空值</li>
+<li>2.只有单笔订单的情况下Trade数据结构中才包含商品相关的信息</li>
+<li>3.获取到的Order中的payment字段在单笔子订单时包含物流费用，多笔子订单时不包含物流费用 注：包含以下字段的返回会增加TOP的后台压力，请仅在确实需要的情况下才去获取：commission_fee, buyer_alipay_no, seller_alipay_no, buyer_email, seller_mobile, seller_phone, seller_name, seller_email, timeout_action_time, item_memo, trade_memo, title, available_confirm_fee</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>tid</em>, <em>session</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.get 获取单笔交易的部分信息(性能高)</p>
+<p>获取单笔交易的部分信息</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.memo_add">
+<code class="descname">memo_add</code><span class="sig-paren">(</span><em>tid</em>, <em>memo</em>, <em>session</em>, <em>flag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.memo_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.memo.add 对一笔交易添加备注</p>
+<p>根据登录用户的身份（买家或卖家），自动添加相应的交易备注,不能重复调用些接口添加备注，需要更新备注请用taobao.trade.memo.update</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.memo_update">
+<code class="descname">memo_update</code><span class="sig-paren">(</span><em>tid</em>, <em>session</em>, <em>memo=None</em>, <em>flag=None</em>, <em>reset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.memo_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.memo.update 修改一笔交易备注</p>
+<p>需要商家或以上权限才可调用此接口，可重复调用本接口更新交易备注，本接口同时具有添加备注的功能</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.postage_update">
+<code class="descname">postage_update</code><span class="sig-paren">(</span><em>tid</em>, <em>post_fee</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.postage_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.postage.update 修改订单邮费价格</p>
+<p>修改订单邮费接口，通过传入订单编号和邮费价格，修改订单的邮费，返回修改时间modified,邮费post_fee,总费用total_fee。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.receivetime_delay">
+<code class="descname">receivetime_delay</code><span class="sig-paren">(</span><em>tid</em>, <em>days</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.receivetime_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.receivetime.delay 延长交易收货时间</p>
+<p>延长交易收货时间</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.shippingaddress_update">
+<code class="descname">shippingaddress_update</code><span class="sig-paren">(</span><em>tid</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.shippingaddress_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.shippingaddress.update 更改交易的收货地址</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trade.snapshot_get">
+<code class="descname">snapshot_get</code><span class="sig-paren">(</span><em>tid, session, fields=['snapshot']</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trade.snapshot_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.snapshot.get 交易快照查询</p>
+<p>交易快照查询 目前只支持类型为“旺店标准版(600)”或“旺店入门版(610)”的交易 对于“旺店标准版”类型的交易，返回的snapshot字段为交易快照编号 对于“旺店入门版”类型的交易，返回的snapshot字段为JSON结构的数据(其中的shopPromotion包含了优惠，积分等信息）</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.Trades">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">Trades</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>批量异步任务的子任务结果</p>
+<dl class="method">
+<dt id="pyTOP.trade.Trades.bought_get">
+<code class="descname">bought_get</code><span class="sig-paren">(</span><em>session</em>, <em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trades.bought_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trades.bought.get 搜索当前会话用户作为买家达成的交易记录</p>
+<p>搜索当前会话用户作为买家达成的交易记录(目前只能查询三个月以内的订单)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trades.sold_get">
+<code class="descname">sold_get</code><span class="sig-paren">(</span><em>session</em>, <em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trades.sold_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trades.sold.get 搜索当前会话用户作为卖家已卖出的交易数据</p>
+<p>搜索当前会话用户作为卖家已卖出的交易数据(只能获取到三个月以内的交易信息)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.trade.Trades.sold_increment_get">
+<code class="descname">sold_increment_get</code><span class="sig-paren">(</span><em>session</em>, <em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Trades.sold_increment_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trades.sold.increment.get 搜索当前会话用户作为卖家已卖出的增量交易数据</p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>搜索当前会话用户作为卖家已卖出的增量交易数据</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="2">
+<li>只能查询时间跨度为一天的增量交易记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="3">
+<li>返回数据结果为创建订单时间的倒序</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="4">
+<li>只能查询3个月内修改过的数据，超过这个时间的数据无法通过taobao.trade.fullinfo.get获取详情。</li>
+</ol>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.Subtask">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">Subtask</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.Subtask" title="Permalink to this definition">¶</a></dt>
+<dd><p>批量异步任务的子任务结果</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.trade.TradeConfirmFee">
+<em class="property">class </em><code class="descclassname">pyTOP.trade.</code><code class="descname">TradeConfirmFee</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.TradeConfirmFee" title="Permalink to this definition">¶</a></dt>
+<dd><p>确认收货费用结构</p>
+<dl class="method">
+<dt id="pyTOP.trade.TradeConfirmFee.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>tid</em>, <em>is_detail</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.trade.TradeConfirmFee.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.trade.confirmfee.get 获取交易确认收货费用</p>
+<p>获取交易确认收货费用 可以获取主订单或子订单的确认收货费用</p>
+</dd></dl>
+
+</dd></dl>
+
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crm.html" class="btn btn-neutral float-right" title="店铺会员管理 API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shop.html" class="btn btn-neutral" title="店铺 API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011, Prof Syd Xu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

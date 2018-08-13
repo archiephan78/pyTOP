@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>店铺会员管理 API &mdash; pyTOP 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="子账号管理 API" href="sellercenter.html" />
+    <link rel="prev" title="交易 API" href="trade.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyTOP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">pyTOP’s API Document</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#basic-api">Basic API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#id2">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="user.html">用户 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="category.html">类目 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">商品 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shop.html">店铺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trade.html">交易 API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">店铺会员管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sellercenter.html">子账号管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wangwang.html">旺旺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logistics.html">物流 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="favorite.html">收藏夹 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traderate.html">评价 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systime.html">系统时间 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fenxiao.html">分销 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taobaoke.html">淘客 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="increment.html">主动通知业务 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vas.html">在线订购 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html">Crawler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyTOP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">pyTOP’s API Document</a> &raquo;</li>
+        
+      <li>店铺会员管理 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/crm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<span id="crm"></span><h1>店铺会员管理 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>API无需订购ecrm工具也可调用。开放淘宝卖家的会员数据，并且提供对会员的相关管理，设置操作。</p>
+<span class="target" id="module-pyTOP.crm"></span><dl class="class">
+<dt id="pyTOP.crm.GroupDomain">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">GroupDomain</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.GroupDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>分组简单定义</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.BasicMember">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">BasicMember</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.BasicMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>表示会员关系的基本信息字段，用于会员列表的基本查询</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.GradePromotion">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">GradePromotion</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.GradePromotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>卖家设置的等级优惠信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.RuleData">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">RuleData</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.RuleData" title="Permalink to this definition">¶</a></dt>
+<dd><p>规则相关信息</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.CrmMember">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">CrmMember</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.CrmMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>会员信息对象</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Group">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Group</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>描述分组的数据结构</p>
+<dl class="method">
+<dt id="pyTOP.crm.Group.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>group_name</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.group.add 卖家创建一个分组</p>
+<p>卖家创建一个新的分组，接口返回一个创建成功的分组的id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Group.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>from_group_id</em>, <em>to_group_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.group.append 将一个分组添加到另外一个分组</p>
+<p>将某分组下的所有会员添加到另一个分组,注</p>
+<ul class="simple">
+<li>1.该操作为异步任务，建议先调用taobao.crm.grouptask.check 确保涉及分组上没有任务；</li>
+<li>2.若分组下某会员分组数超最大限额，则该会员不会被添加到新分组，同时不影响其余会员添加分组，接口调用依然返回成功。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Group.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>group_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.group.delete 删除分组</p>
+<p>将该分组下的所有会员移除出该组，同时删除该分组。注：删除分组为异步任务，必须先调用taobao.crm.grouptask.check 确保涉及属性上没有任务。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Group.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>from_group_id</em>, <em>to_group_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.group.move 分组移动</p>
+<p>将一个分组下的所有会员移动到另一个分组，会员从原分组中删除 注：移动属性为异步任务建议先调用taobao.crm.grouptask.check 确保涉及属性上没有任务。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Group.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>group_id</em>, <em>new_group_name</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Group.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.group.update 修改一个已经存在的分组</p>
+<p>修改一个已经存在的分组，接口返回分组的修改是否成功</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Groups">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Groups</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Groups" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.Groups.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>page_size</em>, <em>current_page</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Groups.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.groups.get 查询卖家的分组</p>
+<p>查询卖家的分组，返回查询到的分组列表，分页返回分组</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.GroupTask">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">GroupTask</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.GroupTask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.GroupTask.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>group_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.GroupTask.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.grouptask.check 查询分组任务是否完成</p>
+<p>检查一个分组上是否有异步任务,异步任务包括</p>
+<ul class="simple">
+<li>1.将一个分组下的所有用户添加到另外一个分组</li>
+<li>2.将一个分组下的所有用户移动到另外一个分组</li>
+<li>3.删除某个分组 若分组上有任务则该属性不能被操作。</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.MemberInfo">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">MemberInfo</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.MemberInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.MemberInfo.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>buyer_nick</em>, <em>status</em>, <em>session</em>, <em>grade=None</em>, <em>province=None</em>, <em>city=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.MemberInfo.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.memberinfo.update 编辑会员资料</p>
+<p>检查一个分组上是否有异步任务,异步任务包括</p>
+<ul class="simple">
+<li>1.将一个分组下的所有用户添加到另外一个分组</li>
+<li>2.将一个分组下的所有用户移动到另外一个分组</li>
+<li>3.删除某个分组 若分组上有任务则该属性不能被操作。</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Members">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Members</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.Members.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>current_page</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.members.get 获取卖家的会员（基本查询）</p>
+<p>查询卖家的会员，进行基本的查询，返回符合条件的会员列表</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Members.group_batchadd">
+<code class="descname">group_batchadd</code><span class="sig-paren">(</span><em>buyer_ids</em>, <em>group_ids</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members.group_batchadd" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.members.group.batchadd 给一批会员添加一个分组</p>
+<p>为一批会员添加分组，接口返回添加是否成功,如至少有一个会员的分组添加成功，接口就返回成功，否则返回失败，如果当前会员已经拥有当前分组，则直接跳过</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Members.groups_batchdelete">
+<code class="descname">groups_batchdelete</code><span class="sig-paren">(</span><em>buyer_ids</em>, <em>group_ids</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members.groups_batchdelete" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.members.groups.batchdelete 批量删除分组</p>
+<p>批量删除多个会员的公共分组，接口返回删除是否成功，该接口只删除多个会员的公共分组，不是公共分组的，不进行删除。如果入参只输入一个会员，则表示删除该会员的某些分组。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Members.increment_get">
+<code class="descname">increment_get</code><span class="sig-paren">(</span><em>current_page</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members.increment_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.members.increment.get 增量获取卖家会员）</p>
+<p>增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Members.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>current_page</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Members.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.members.search 获取卖家会员（高级查询））</p>
+<p>会员列表的高级查询，接口返回符合条件的会员列表</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Grade">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Grade</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Grade" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.Grade.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Grade.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.grade.get 卖家查询等级规则</p>
+<p>卖家查询等级规则，包括普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Rule">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Rule</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rule" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.Rule.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>rule_name</em>, <em>session</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rule.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.rule.add 分组规则添加</p>
+<p>添加分组规则，规则可用于筛选一定条件的会员。过滤条件可以选择客户来源、会员级别 、交易笔数、交易额、上次交易时间、平均客单价、宝贝件数、省份、关闭交易数等，新建规则时必须至少选择一个以上筛选条件。如果输入的规则的筛选条件不正确则不会进行处理，可以将某些分组挂在这个规则下，对被挂在该规则下的分组，系统对现有满足规则的客户都划分到这个分组（异步任务），若某些会员分组数或规则数超最大限额，则该会员不被操作，同时不影响其余会员操作，接口调用依然返回成功。每个规则可以应用到多个分组，一个用户的规则上限为5个。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Rule.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>rule_id</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rule.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.rule.delete 分组规则删除</p>
+<p>分组规则删除</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.crm.Rule.group_set">
+<code class="descname">group_set</code><span class="sig-paren">(</span><em>rule_id</em>, <em>session</em>, <em>add_groups=None</em>, <em>delete_groups=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rule.group_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.rule.group.set 设置规则适用的分组</p>
+<p>将规则应用或取消应用到分组上，add_groups和delete_groups，两个参数最少填写一个。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.Rules">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">Rules</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rules" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.Rules.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>current_page</em>, <em>session</em>, <em>page_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.Rules.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.rules.get 获取规则</p>
+<p>获取现有的规则列表</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.crm.ShopVip">
+<em class="property">class </em><code class="descclassname">pyTOP.crm.</code><code class="descname">ShopVip</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.ShopVip" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.crm.ShopVip.cancel">
+<code class="descname">cancel</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.crm.ShopVip.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.crm.shopvip.cancel 卖家取消店铺vip的优惠</p>
+<p>此接口用于取消VIP优惠</p>
+</dd></dl>
+
+</dd></dl>
+
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sellercenter.html" class="btn btn-neutral float-right" title="子账号管理 API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="trade.html" class="btn btn-neutral" title="交易 API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011, Prof Syd Xu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

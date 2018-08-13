@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>淘客 API &mdash; pyTOP 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="主动通知业务 API" href="increment.html" />
+    <link rel="prev" title="分销 API" href="fenxiao.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyTOP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">pyTOP’s API Document</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#basic-api">Basic API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#id2">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="user.html">用户 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="category.html">类目 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">商品 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shop.html">店铺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trade.html">交易 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crm.html">店铺会员管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sellercenter.html">子账号管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wangwang.html">旺旺 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logistics.html">物流 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="favorite.html">收藏夹 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traderate.html">评价 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systime.html">系统时间 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fenxiao.html">分销 API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">淘客 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="increment.html">主动通知业务 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vas.html">在线订购 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html">Crawler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyTOP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">pyTOP’s API Document</a> &raquo;</li>
+        
+      <li>淘客 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/taobaoke.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<span id="taobaoke"></span><h1>淘客 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>提供了淘宝客商品列表和淘宝客单品详情推广，店铺推广，类目和关键字推广以及淘客报表查询等功能</p>
+<span class="target" id="module-pyTOP.taobaoke"></span><dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeReportMember">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeReportMember</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeReportMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝客报表成员</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeReport">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeReport</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝客报表</p>
+<dl class="method">
+<dt id="pyTOP.taobaoke.TaobaokeReport.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>date</em>, <em>page_no=1</em>, <em>page_size=40</em>, <em>fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeReport.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.report.get 淘宝客报表查询</p>
+<p>淘宝客报表查询</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeItemDetail">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeItemDetail</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeItemDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝客商品详情</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeItem">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeItem</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝客商品</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeShop">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeShop</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeShop" title="Permalink to this definition">¶</a></dt>
+<dd><p>淘宝客店铺</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.TaobaokeShops">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">TaobaokeShops</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeShops" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.taobaoke.TaobaokeShops.convert">
+<code class="descname">convert</code><span class="sig-paren">(</span><em>sids</em>, <em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeShops.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.shops.convert 淘客店铺转换</p>
+<p>淘宝客店铺转换</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.TaobaokeShops.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.TaobaokeShops.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.shops.get 淘宝客店铺搜索</p>
+<p>提供对参加了淘客推广的店铺的搜索</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyTOP.taobaoke.Taobaoke">
+<em class="property">class </em><code class="descclassname">pyTOP.taobaoke.</code><code class="descname">Taobaoke</code><span class="sig-paren">(</span><em>API_KEY=None</em>, <em>APP_SECRET=None</em>, <em>ENVIRONMENT=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.caturl_get">
+<code class="descname">caturl_get</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.caturl_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.caturl.get 淘宝客类目推广URL</p>
+<p>淘宝客类目推广URL</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.items_convert">
+<code class="descname">items_convert</code><span class="sig-paren">(</span><em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.items_convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.items.convert 淘客商品转换</p>
+<p>淘宝客商品转换</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.items_detail_get">
+<code class="descname">items_detail_get</code><span class="sig-paren">(</span><em>num_iids</em>, <em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.items_detail_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.items.detail.get 查询淘宝客推广商品详细信息</p>
+<p>查询淘宝客推广商品详细信息</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.items_get">
+<code class="descname">items_get</code><span class="sig-paren">(</span><em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.items_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.items.get 查询淘宝客推广商品</p>
+<p>查询淘宝客推广商品,不能通过设置cid=0来查询</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.listurl_get">
+<code class="descname">listurl_get</code><span class="sig-paren">(</span><em>q</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.listurl_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.listurl.get 淘宝客关键词搜索URL</p>
+<p>淘宝客关键词搜索URL</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.tool_relation">
+<code class="descname">tool_relation</code><span class="sig-paren">(</span><em>pubid</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.tool_relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.tool.relation 工具联盟注册校验</p>
+<p>判断用户pid是否是appkey关联的注册用户</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyTOP.taobaoke.Taobaoke.virtualcard_get">
+<code class="descname">virtualcard_get</code><span class="sig-paren">(</span><em>fields=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyTOP.taobaoke.Taobaoke.virtualcard_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>taobao.taobaoke.virtualcard.get 虚拟卡查询</p>
+<p>虚拟点卡充值卡电话卡等查询</p>
+</dd></dl>
+
+</dd></dl>
+
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="increment.html" class="btn btn-neutral float-right" title="主动通知业务 API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fenxiao.html" class="btn btn-neutral" title="分销 API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011, Prof Syd Xu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
